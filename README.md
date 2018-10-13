@@ -10,6 +10,9 @@ A collection of cards games made on Unity
 
 ## Todo
 
+README format: [Github Format](https://help.github.com/articles/basic-writing-and-formatting-syntax/) (will be delete later)
+
+
 ### Presentations
  - [ ] **TODO** Initial Presentation: Needs to update the powerpoint on the Google Drive
 ### Release Plan go here
@@ -33,9 +36,9 @@ A collection of cards games made on Unity
  - Trello 
  - Github
 
-### Instalation guide - how to install the game - tbd
-
-README format: [Github Format](https://help.github.com/articles/basic-writing-and-formatting-syntax/) (will be delete later)
+### Instalation guide
+ - Download Unity Personal [Link](https://store.unity.com/download?ref=personal)
+ - TBD
 
 ### Resources
 
