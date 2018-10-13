@@ -42,7 +42,6 @@ README format: [Github Format](https://help.github.com/articles/basic-writing-an
  - [User Interface Prototype](https://xd.adobe.com/view/f67aabb1-8b86-4a7d-5367-380d6d78ad04-804b/)
  - [Kenny Sounds Affect](https://kenney.nl/assets/casino-audio)
  - [Unity Scripting](https://unity3d.com/learn/tutorials/s/scripting), [UI](https://unity3d.com/learn/tutorials/s/user-interface-ui), [2D Games](https://unity3d.com/learn/tutorials/s/2d-game-creation), [Audio](https://unity3d.com/learn/tutorials/s/audio)
-
-- [Multiplayer](https://unity3d.com/learn/tutorials/s/multiplayer-networking)
+ - [Multiplayer](https://unity3d.com/learn/tutorials/s/multiplayer-networking)
 
 
