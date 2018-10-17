@@ -25,7 +25,7 @@ README format: [Github Format](https://help.github.com/articles/basic-writing-an
 ### Scrums
 
 - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-1-%F0%9F%9A%80-08-10-18-21-10-18)
-- [ ] **TODO**: Sprint #1 
+- [ ] **TODO**: Sprint #1 [Link, fat WIP](https://docs.google.com/document/d/1hyT55H2C1SfiIHOdKpfWRjAfH6jTzkLDLVLrnZ2Dbh0/edit)
 - [ ] **TODO**: Week 2 TSR (Check Grep Think, will be delete every week)
 - [ ] **TODO**: Sprint #2
 - [ ] **TODO**: Week 3 TSR
