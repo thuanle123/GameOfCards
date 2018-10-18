@@ -1,7 +1,9 @@
 # Game of Cards
 
 A collection of cards games made on Unity
+
 ## Team WildCard
+
 - Thuan Le (Product Owner)
 
 - Art Parkeenvincha (Initial Scrum Master)
@@ -15,19 +17,18 @@ A collection of cards games made on Unity
 README format: [Github Format](https://help.github.com/articles/basic-writing-and-formatting-syntax/) (will be delete later)
 
 
-### Presentations
- - [ ] **TODO** Initial Presentation: Needs to update the powerpoint on the Google Drive
-### Release Plan go here
+### Presentation
+
+- [x] Initial Presentation [Link](https://docs.google.com/presentation/d/1JbSwHQwJg5-Oik0h6f20dCVgwFGAy97h9LZigEuszHU/edit?usp=sharing)
+ 
+### Release Plans
 
 - [x] Release Plan #1 [PDF](https://github.com/Kaswilli/GameOfCards/blob/master/SCRUM/Release%20Plan%20%231.pdf)
-- [ ] Release Plan #2
-- [ ] Release Plan #3
-- [ ] Release Plan #4
 
-### Scrums
+### Sprint Plans
 
 - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-1-%F0%9F%9A%80-08-10-18-21-10-18)
-- [ ] **TODO**: Sprint #1 [Link, fat WIP](https://docs.google.com/document/d/1hyT55H2C1SfiIHOdKpfWRjAfH6jTzkLDLVLrnZ2Dbh0/edit)
+- [x] Sprint Plan #1 [Link](https://docs.google.com/document/d/1hyT55H2C1SfiIHOdKpfWRjAfH6jTzkLDLVLrnZ2Dbh0/edit)
 - [ ] **TODO**: Week 2 TSR (Check Grep Think, will be delete every week)
 - [ ] **TODO**: Sprint #2
 - [ ] **TODO**: Week 3 TSR
@@ -39,6 +40,7 @@ README format: [Github Format](https://help.github.com/articles/basic-writing-an
  - Github
 
 ### Installation guide
+
  - Download Unity Personal [Link](https://store.unity.com/download?ref=personal)
  - TBD
 
