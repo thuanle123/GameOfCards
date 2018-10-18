@@ -1,1 +1,1 @@
-Where all the SCRUM plans will go.
+This is where all EXTENSIVE DOCUMENTATIONS GO.
