@@ -19,25 +19,24 @@ README format: [Github Format](https://help.github.com/articles/basic-writing-an
 
 ### Presentation
 
-- [x] Initial Presentation [Link](https://docs.google.com/presentation/d/1JbSwHQwJg5-Oik0h6f20dCVgwFGAy97h9LZigEuszHU/edit?usp=sharing)
+- Initial Presentation [Link](https://docs.google.com/presentation/d/1JbSwHQwJg5-Oik0h6f20dCVgwFGAy97h9LZigEuszHU/edit?usp=sharing)
  
 ### Release Plans
 
-- [x] Release Plan #1 [PDF](https://github.com/Kaswilli/GameOfCards/blob/master/SCRUM/Release%20Plan%20%231.pdf)
+- Release Plan #1 [PDF](https://github.com/Kaswilli/GameOfCards/blob/master/SCRUM/Release%20Plan%20%231.pdf)
 
-### Sprint Plans
+### Sprint #1
 
 - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-1-%F0%9F%9A%80-08-10-18-21-10-18)
-- [x] Sprint Plan #1 [Link](https://docs.google.com/document/d/1hyT55H2C1SfiIHOdKpfWRjAfH6jTzkLDLVLrnZ2Dbh0/edit)
-- [ ] **TODO**: Week 2 TSR (Check Grep Think, will be delete every week)
-- [ ] **TODO**: Sprint #2
-- [ ] **TODO**: Week 3 TSR
+- Sprint #1 Plan [Link](https://docs.google.com/document/d/1hyT55H2C1SfiIHOdKpfWRjAfH6jTzkLDLVLrnZ2Dbh0/edit)
+- Sprint #1 Report [Link](https://docs.google.com/document/d/1UhWV542c60f8G0PK0X72cmzOhuq37D0xVA0Xa0oMXCg/edit?usp=sharing)
 
 ### Technologies
 
- - Unity
- - Trello 
+ - Unity 
  - Github
+ - Slack
+ - Trello
 
 ### Installation guide
 
