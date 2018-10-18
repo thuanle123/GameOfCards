@@ -6,23 +6,31 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     // Play the game to go to the next scene
-	public void PlayGame()
+    // case 0 loads the PlayMenu scene
+    // case 1 quits the game
+    // case 2 loads credit menu
+    // case 3 loads option menu
+    public void MenuManager(int i)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        switch (i)
+        {
+            default:
+            case (0):
+                SceneManager.LoadScene(1);
+                break;
+            case (1):
+                Debug.Log("Application Quit");
+                Application.Quit();
+                break;
+            case (2):
+                SceneManager.LoadScene(2);
+                break;
+            case (3):
+                SceneManager.LoadScene(3);
+                break;
+        }
     }
-
-    // Quit the game function
-    public void QuitGame()
-    {
-        Debug.Log("Quit");
-        Application.Quit();
-    }
-
-    public void Credit()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-    }
-
+	
     public void Back()
     {
         SceneManager.LoadScene(0);
