@@ -1,14 +1,14 @@
 # Game of Cards
 
-A collection of cards games made on Unity
+A collection of cards games made on Unity 2D.
 
 ## Team WildCard
 
 - Thuan Le (Product Owner)
 
-- Art Parkeenvincha (Initial Scrum Master)
+- Art Parkeenvincha
 
-- Kalyn Williams
+- Kalyn Williams (Initial Scrum Master)
 
 - Kyle Lee
 
@@ -28,9 +28,15 @@ README format: [Github Format](https://help.github.com/articles/basic-writing-an
 ### Sprint #1
 
 - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-1-%F0%9F%9A%80-08-10-18-21-10-18)
-- Sprint #1 Plan [Link](https://docs.google.com/document/d/1hyT55H2C1SfiIHOdKpfWRjAfH6jTzkLDLVLrnZ2Dbh0/edit)
-- Sprint #1 Report [Link](https://docs.google.com/document/d/1UhWV542c60f8G0PK0X72cmzOhuq37D0xVA0Xa0oMXCg/edit?usp=sharing)
+- Sprint #1 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%231.pdf)
+- Sprint #1 Report [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Release%20Plan%20%231.pdf)
 
+### Sprint #2
+
+ - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-2-%F0%9F%9A%80-22-10-18-04-11-18)
+ - Sprint #2 Plan
+ - Sprint #2 Report
+ 
 ### Technologies
 
  - Unity 
