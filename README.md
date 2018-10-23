@@ -12,8 +12,6 @@ A collection of cards games made on Unity 2D.
 
 - Kyle Lee
 
-## To-do
-
 README format: [Github Format](https://help.github.com/articles/basic-writing-and-formatting-syntax/) (will be delete later)
 
 
