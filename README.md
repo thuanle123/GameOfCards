@@ -8,7 +8,7 @@ A collection of cards games made on Unity 2D.
 
 - Art Parkeenvincha
 
-- Kalyn Williams (Initial Scrum Master)
+- Kalyn Williams (Second Scrum Master)
 
 - Kyle Lee
 
@@ -32,7 +32,7 @@ README format: [Github Format](https://help.github.com/articles/basic-writing-an
 ### Sprint #2
 
  - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-2-%F0%9F%9A%80-22-10-18-04-11-18)
- - Sprint #2 Plan
+ - Sprint #2 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%232.pdf)
  - Sprint #2 Report
  
 ### Technologies
