@@ -44,7 +44,7 @@ public class Test : MonoBehaviour
         }
 
         //Back Button
-        if (GUI.Button(new Rect(950,10,200,20), "Back"))
+        if (GUI.Button(new Rect(500,10,200,20), "Back"))
         {
             SceneManager.LoadScene(1);
         }
