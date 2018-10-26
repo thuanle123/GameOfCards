@@ -27,7 +27,7 @@ README format: [Github Format](https://help.github.com/articles/basic-writing-an
 
 - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-1-%F0%9F%9A%80-08-10-18-21-10-18)
 - Sprint #1 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%231.pdf)
-- Sprint #1 Report [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Release%20Plan%20%231.pdf)
+- Sprint #1 Report [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20%231%20Report%20.pdf)
 
 ### Sprint #2
 
