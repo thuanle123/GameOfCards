@@ -18,7 +18,7 @@ public class Test : MonoBehaviour
     }
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(500, 200, 200, 20), "Draw!"))
+        if (GUI.Button(new Rect(400, 150, 200, 20), "Draw!"))
         {
             //Reset the card index
             if (cardIndex >= cardModel.Faces.Length)
@@ -44,7 +44,7 @@ public class Test : MonoBehaviour
         }
 
         //Back Button
-        if (GUI.Button(new Rect(500,10,200,20), "Back"))
+        if (GUI.Button(new Rect(720,10,200,20), "Back"))
         {
             SceneManager.LoadScene(1);
         }
