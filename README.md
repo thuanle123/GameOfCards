@@ -45,7 +45,9 @@ README format: [Github Format](https://help.github.com/articles/basic-writing-an
 ### Installation guide
 
  - Download Unity Personal [Link](https://store.unity.com/download?ref=personal)
- - TBD
+ - Clone the Project
+ - Build and Run
+ - Enjoy
 
 ### Resources
 
