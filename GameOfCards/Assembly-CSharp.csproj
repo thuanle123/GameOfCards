@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Card.cs" />
     <Compile Include="Assets\Scripts\CardFlip.cs" />
     <Compile Include="Assets\Scripts\CardModel.cs" />
+    <Compile Include="Assets\Scripts\CardView.cs" />
     <Compile Include="Assets\Scripts\Deck.cs" />
     <Compile Include="Assets\Scripts\DeckTest.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />

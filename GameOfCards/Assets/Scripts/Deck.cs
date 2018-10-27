@@ -8,11 +8,78 @@ using UnityEngine;
  *  Note: one instance of Deck also contains the discard pile.
 */ 
 
-public class Deck {
-    IList<Card> deck;
-    IList<Card> discard_pile;
+public class Deck : MonoBehaviour
+{
 
-    public Deck()
+    //IList<Card> deck;
+    //IList<Card> discard_pile;
+
+    // this list is private
+    List<int> cards;
+
+    // need a public method to numerate through them all
+    // need to use yield
+    public IEnumerable<int> GetCards()
+    {
+        foreach (int i in cards)
+        {
+            yield return i;
+        }
+    }
+
+    public void Shuffle()
+    {
+        if (cards != null)
+        {
+            cards.Clear();
+        }
+        else
+        {
+            cards = new List<int>();
+        }
+        
+        // Unshuffle card deck, go from 0 to 51
+        // I bring the Fisher-Yates method up here
+        // Art Fisher-Yates method
+        for (int i = 0; i < 52; i++)
+        {
+            cards.Add(i);
+        }
+        int len = cards.Count;
+        for (int k = 0; k < 3; ++k)
+        {
+            for (int i = len - 1; i >= 1; --i)
+            {
+                int j = new System.Random().Next(i);
+                int temp = cards[i];
+                cards[i] = cards[j];
+                cards[j] = temp;
+            }
+        }
+        // Given a list, use Fisher-Yates shuffle
+        //public IList<Card> Shuffle(IList<Card> list)
+        //{
+           // var len = list.Count;
+            //for (var k = 0; k < 3; ++k) //use Fisher-Yates multiple times
+           // {
+               // for (var i = len - 1; i >= 1; --i)
+                //{
+                   // var j = new System.Random().Next(i);
+                    //var tmp = list[i];
+                   // list[i] = list[j];
+                    //list[j] = tmp;
+               // }
+            //}
+
+            //return list;
+        //}
+    }
+
+    void Start()
+    {
+        Shuffle();
+    }
+    /*public Deck()
     {
         System.Random rng = new System.Random();
         this.deck = new List<Card>();
@@ -44,21 +111,5 @@ public class Deck {
         }
     }
 
-    // Given a list, use Fisher-Yates shuffle
-    public IList<Card> Shuffle(IList<Card> list)
-    {
-        var len = list.Count;
-        for(var k = 0; k < 3; ++k) //use Fisher-Yates multiple times
-        {
-            for (var i = len - 1; i >= 1; --i)
-            {
-                var j = new System.Random().Next(i);
-                var tmp = list[i];
-                list[i] = list[j];
-                list[j] = tmp;
-            }
-        }
-
-        return list;
-    }
+    }*/
 }
