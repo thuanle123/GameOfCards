@@ -8,7 +8,7 @@ public class DeckTest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Deck d = new Deck();
+        //Deck d = new Deck();
         //for(var i = 0; i < 52; ++i)
         //{
             //Card c = d.Draw();

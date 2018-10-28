@@ -64,10 +64,13 @@
     <Compile Include="Assets\Scripts\Card.cs" />
     <Compile Include="Assets\Scripts\CardFlip.cs" />
     <Compile Include="Assets\Scripts\CardModel.cs" />
+    <Compile Include="Assets\Scripts\CardRemoved.cs" />
+    <Compile Include="Assets\Scripts\CardStack.cs" />
     <Compile Include="Assets\Scripts\CardView.cs" />
-    <Compile Include="Assets\Scripts\Deck.cs" />
+    <Compile Include="Assets\Scripts\DebugDealer.cs" />
     <Compile Include="Assets\Scripts\DeckTest.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\RemovedHandler.cs" />
     <Compile Include="Assets\Scripts\Test.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

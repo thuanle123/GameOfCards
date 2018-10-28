@@ -8,7 +8,7 @@ using UnityEngine;
  *  Note: one instance of Deck also contains the discard pile.
 */ 
 
-public class Deck : MonoBehaviour
+public class CardStack : MonoBehaviour
 {
 
     //IList<Card> deck;
@@ -17,6 +17,12 @@ public class Deck : MonoBehaviour
     // this list is private
     List<int> cards;
 
+    public bool isGameDeck;
+
+    public bool HasCards
+    {
+        get { return cards != null && cards.Count > 0; }
+    }
     // need a public method to numerate through them all
     // need to use yield
     public IEnumerable<int> GetCards()
@@ -27,17 +33,76 @@ public class Deck : MonoBehaviour
         }
     }
 
+    //Get card count from card stack
+    public int CardCount
+    {
+        get
+        {
+            if (cards != null)
+            {
+                return cards.Count;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+
+    public event RemovedEventHandler CardRemoved; //delegate
+
+    //This is your Card Draw method(), i just move it up here
+    public int Draw()
+    {
+        int temp = cards[0];
+        cards.RemoveAt(0);
+
+        //to remove card from the stack
+        if (CardRemoved != null)
+        {
+            CardRemoved(this, new CardRemoved(temp));
+        }
+        return temp;
+    }
+
+    public void push(int card)
+    {
+        cards.Add(card);
+    }
+
+    //calculate the hand
+    //get mod
+    public int ChanceHandValue()
+    {
+        int sum = 0;
+        foreach(int card in GetCards())
+        {
+            // give the remainder
+            // 0         Ace
+            // 1         2
+            // 2         3
+            int cardRank = card % 13; 
+            if (cardRank <=9) // bigger than 10
+            {
+                cardRank += 1;
+            }
+            else
+            {
+                cardRank = 10;
+            }
+            sum = sum + cardRank;
+
+            if (sum > 10)
+            {
+                sum = sum % 10;
+            }
+        }
+        return sum;
+    }
     public void Shuffle()
     {
-        if (cards != null)
-        {
-            cards.Clear();
-        }
-        else
-        {
-            cards = new List<int>();
-        }
-        
+        cards.Clear();
+
         // Unshuffle card deck, go from 0 to 51
         // I bring the Fisher-Yates method up here
         // Art Fisher-Yates method
@@ -77,7 +142,11 @@ public class Deck : MonoBehaviour
 
     void Start()
     {
-        Shuffle();
+        cards = new List<int>();
+        if (isGameDeck)
+        {
+            Shuffle();
+        }
     }
     /*public Deck()
     {
@@ -108,6 +177,7 @@ public class Deck : MonoBehaviour
             Card c = deck[0];
             deck.RemoveAt(0); //Remove card after being drawn
             return c;
+        }
         }
     }
 

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Card class:
- * Uses a enumeration to keep track of the suit of the card.
- * TODO: Link individual cards to respective asset.
-*/
+/* 
+ * THIS IS USELESS BTW.
+*/ 
 
 public class Card
 {
