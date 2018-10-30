@@ -70,8 +70,7 @@ public class CardStack : MonoBehaviour
         cards.Add(card);
     }
 
-    //calculate the hand
-    //get mod
+    //calculate the hand value
     public int ChanceHandValue()
     {
         int sum = 0;
@@ -81,15 +80,7 @@ public class CardStack : MonoBehaviour
             // 0         Ace
             // 1         2
             // 2         3
-            int cardRank = card % 13; 
-            if (cardRank <=9) // bigger than 10
-            {
-                cardRank += 1;
-            }
-            else
-            {
-                cardRank = 10;
-            }
+            int cardRank = (card % 13) +1; //get the value of the deck
             sum = sum + cardRank;
 
             if (sum > 10)
