@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
 /* Deck class:
 * Utilizes an interface list (IList) to generate a stack of 52 cards.
 * Shuffling implemented with a technique called the Fisher-Yates shuffle.
@@ -15,11 +15,15 @@ public class Deck
         System.Random rng = new System.Random();
         this.deck = new List<Card>();
         this.discard_pile = new List<Card>();
+
+        int assetIndex = 0;
         for (var i = 1; i <= 4; ++i) // Loop through all suits (Hearts, Clubs, Diamonds,Spades)
         {
             for (var j = 1; j <= 13; ++j) // Loop through all ranks (1 to 13)
             {
-                deck.Add(new Card((Card.SuitEnum)i, j));
+                Vector3 pos = new Vector3(50, 50);
+                Quaternion ro = new Quaternion();
+                deck.Add(new Card((Card.SuitEnum)i, j, assetIndex, pos, ro));
             }
         }
         this.deck = Shuffle(this.deck);
