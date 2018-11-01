@@ -10,7 +10,7 @@ public class CardView : MonoBehaviour
     // when you hit draw, reverse will take the top of of the deck instead of bottom
     CardStack deck;
     Dictionary<int, GameObject> fetchedCards; // change from list to dictionary, key that unlocks
-    int lastCount;
+    //int lastCount;
     public Vector3 start;
     public float cardOffset;
     public bool faceUp = false;
@@ -23,7 +23,7 @@ public class CardView : MonoBehaviour
         fetchedCards = new Dictionary<int, GameObject>();
         deck = GetComponent<CardStack>();
         ShowCards();
-        lastCount = deck.CardCount; //number of card in the deck
+        //lastCount = deck.CardCount; //number of card in the deck
         deck.CardRemoved += Deck_CardRemoved;
 	}
 
@@ -43,11 +43,11 @@ public class CardView : MonoBehaviour
 
     void Update()
     {
-        if (lastCount != deck.CardCount)
-        {
-            lastCount = deck.CardCount;
+        //if (lastCount != deck.CardCount)
+        //{
+            //l//astCount = deck.CardCount;
             ShowCards();
-        }
+        //}
     }
 
     // Show the cards
@@ -75,9 +75,10 @@ public class CardView : MonoBehaviour
     void AddCard(Vector3 position, int cardIndex, int positionalIndex)
     {
         // do nothing if already fetch the card
+        // without this it won't add the card
         if (fetchedCards.ContainsKey(cardIndex))
         {
-            return;
+           return;
         }
         GameObject cardCopy = (GameObject)Instantiate(cardPrefab);
         cardCopy.transform.position = position;
@@ -88,6 +89,8 @@ public class CardView : MonoBehaviour
 
         // so card spread looks normal
         SpriteRenderer spriteRenderer = cardCopy.GetComponent<SpriteRenderer>();
+        // This too much sure the card doesn't look like
+        // it being pulled from the bottom of the deck
         if (reverseLayer)
         {
             spriteRenderer.sortingOrder = 51 - positionalIndex;
@@ -99,6 +102,7 @@ public class CardView : MonoBehaviour
         fetchedCards.Add(cardIndex, cardCopy);
 
         Debug.Log("Hand Value = " + deck.ChanceHandValue());
+        //Debug.Log("Test Value = " + deck.Value());
     }
 	
 }
