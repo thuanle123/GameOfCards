@@ -6,10 +6,12 @@ public class CardChanceGamePlay : MonoBehaviour
 {
     int dealersFirstCard = -1;
 
+    // These are game objects
     public CardStack dealer;
     public CardStack player;
     public CardStack deck;
-
+    
+    // Create these buttons in Chance scene
     public Button continueButton;
     public Button revealButton;
     public Button playAgainButton;
@@ -17,10 +19,12 @@ public class CardChanceGamePlay : MonoBehaviour
     public Text winnerText;
 
     /*
-     * Cards dealt to each player
-     * First player hits/sticks/bust
-     * Dealer's turn; must have minimum of 17 score hand
-     * Dealers cards; first card is hidden, subsequent cards are facing
+     * 3 Cards dealt to each player
+     * First player reveal the card
+     * Add up all three cards and take the mod 10
+     * Compare the 2 cards
+     * you win if you have higher hand
+     * 3 face cards (Jack/Jack/Jack) or Queen/Jack/King have the highest value
      */
 
     public void Reveal()
@@ -33,12 +37,11 @@ public class CardChanceGamePlay : MonoBehaviour
     public void PlayAgain()
     {
         playAgainButton.interactable = false;
-
-        //player.GetComponent<CardView>().Clear();
-        //dealer.GetComponent<CardView>().Clear();
-        //deck.GetComponent<CardView>().Clear();
+        
+        // PROBLEM: THE CARD RESET INSTEAD OF RUNNING OUT OF THE STACK
+        // Probably happen during shuffle function
+        // no swap so it's okay(?)
         deck.Shuffle();
-
         winnerText.text = "";
 
         continueButton.interactable = true;
@@ -59,46 +62,24 @@ public class CardChanceGamePlay : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             player.push(deck.Draw());
-            //HitDealer();
+            dealer.push(Deck.Draw()); // may or may not work?
         }
     }
 
-    /*
-    void HitDealer()
-    {
-        int card = deck.Draw();
-
-        if (dealersFirstCard < 0)
-        {
-            dealersFirstCard = card;
-        }
-
-        dealer.push(card);
-        if (dealer.CardCount >= 2)
-        {
-            CardView view = dealer.GetComponent<CardView>();
-        }
-    }
-
+/*
     IEnumerator DealersTurn()
     {
         continueButton.interactable = false;
         revealButton.interactable = false;
 
         CardView view = dealer.GetComponent<CardView>();
-        //view.Toggle(dealersFirstCard, true);
         view.ShowCards();
         yield return new WaitForSeconds(1f);
 
 
-        if (dealer.ChanceHandValue() >= player.ChanceHandValue())
-        {
-            winnerText.text = "Sorry-- you lose";
-        }
-        else
-        {
-            winnerText.text = "You win";
-        }
+        // Compare the two hands should be around here
+        // CardStack.cs has a comment out function call Value(), it will take the mod 10 of ChanceHandValue()
+        // cannot put it in here
 
         yield return new WaitForSeconds(1f);
         playAgainButton.interactable = true;
