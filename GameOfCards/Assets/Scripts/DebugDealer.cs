@@ -12,14 +12,14 @@ public class DebugDealer : MonoBehaviour
 
     void OnGUI()
     {
-        //if (GUI.Button(new Rect(10, 10, 256, 28),"Draw"))
-        //{
-        //player.push(dealer.Draw());
-        //}
         if (GUI.Button(new Rect(10, 10, 256, 28),"Draw"))
         {
-            player.push(faceCard[count++]);
+        player.push(dealer.Draw());
         }
+        //if (GUI.Button(new Rect(10, 10, 256, 28),"Draw"))
+        //{
+            //player.push(faceCard[count++]);
+        //}
     }
 
 
