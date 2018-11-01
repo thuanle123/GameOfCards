@@ -2,27 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Deck class:
- * Utilizes an interface list (IList) to generate a stack of 52 cards.
- * Shuffling implemented with a technique called the Fisher-Yates shuffle.
- *  Note: one instance of Deck also contains the discard pile.
-*/ 
-
 public class CardStack : MonoBehaviour
 {
-
-    //IList<Card> deck;
-    //IList<Card> discard_pile;
-
     // this list is private
-    List<int> cards;
+    public List<int> cards;
 
     public bool isGameDeck;
+    public event RemovedEventHandler CardRemoved; //delegate
+    public bool HasCards{ get { return cards != null && cards.Count > 0; } }
 
-    public bool HasCards
-    {
-        get { return cards != null && cards.Count > 0; }
-    }
     // need a public method to numerate through them all
     // need to use yield
     public IEnumerable<int> GetCards()
@@ -49,7 +37,6 @@ public class CardStack : MonoBehaviour
         }
     }
 
-    public event RemovedEventHandler CardRemoved; //delegate
 
     //This is your Card Draw method(), i just move it up here
     public int Draw()

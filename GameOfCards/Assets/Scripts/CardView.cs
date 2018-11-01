@@ -43,17 +43,13 @@ public class CardView : MonoBehaviour
 
     void Update()
     {
-        //if (lastCount != deck.CardCount)
-        //{
-            //l//astCount = deck.CardCount;
-            ShowCards();
-        //}
+        ShowCards();
     }
 
     // Show the cards
     // Iterate through all the integer and create a new instance
     // of card prefab (Vector3) and add to the position
-    void ShowCards()
+    public void ShowCards()
     {
         int cardCount = 0;
         if (deck.HasCards)
@@ -101,7 +97,7 @@ public class CardView : MonoBehaviour
         }
         fetchedCards.Add(cardIndex, cardCopy);
 
-        Debug.Log("Hand Value = " + deck.ChanceHandValue());
+        //Debug.Log("Hand Value = " + deck.ChanceHandValue());
         //Debug.Log("Test Value = " + deck.Value());
     }
 	
