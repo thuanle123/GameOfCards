@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bcbf8de10721a24185e2b0c199bc3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cards: 
   isGameDeck: 0
 --- !u!4 &60632813
 Transform:
@@ -222,11 +223,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4110320765044218, guid: 157603c5bf9f36d49938703b35be46ab, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -13.25
+      value: -10.61
       objectReference: {fileID: 0}
     - target: {fileID: 4110320765044218, guid: 157603c5bf9f36d49938703b35be46ab, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.45
+      value: -1.93
       objectReference: {fileID: 0}
     - target: {fileID: 4110320765044218, guid: 157603c5bf9f36d49938703b35be46ab, type: 2}
       propertyPath: m_LocalPosition.z
@@ -382,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bcbf8de10721a24185e2b0c199bc3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cards: 
   isGameDeck: 1
 --- !u!4 &2101494144
 Transform:
