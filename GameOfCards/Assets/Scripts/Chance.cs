@@ -1,21 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Chance : MonoBehaviour
 {
-    int dealersFirstCard = -1;
-
+    
     // These are game objects
     public CardStack dealer;
     public CardStack player;
     public CardStack deck;
 
     // Create these buttons in Chance scene
-    public Button continueButton;
-    public Button revealButton;
     public Button playAgainButton;
-
     public Text winnerText;
 
     /*
@@ -27,13 +24,7 @@ public class Chance : MonoBehaviour
      * 3 face cards (Jack/Jack/Jack) or Queen/Jack/King have the highest value
      */
 
-    public void Reveal()
-    {
-        continueButton.interactable = false;
-        revealButton.interactable = false;
-        //StartCoroutine(DealersTurn());
-    }
-
+    // need to complete
     public void PlayAgain()
     {
         playAgainButton.interactable = false;
@@ -44,10 +35,10 @@ public class Chance : MonoBehaviour
         deck.Shuffle();
         winnerText.text = "";
 
-        continueButton.interactable = true;
-        revealButton.interactable = true;
+        //continueButton.interactable = true;
+        //revealButton.interactable = true;
 
-        dealersFirstCard = -1;
+        //dealersFirstCard = -1;
 
         StartGame();
     }
@@ -78,25 +69,23 @@ public class Chance : MonoBehaviour
                 player.push(deck.Draw());
                 dealer.push(deck.Draw());
             }
+            if (dealer.ChanceHandValue() > player.ChanceHandValue())
+            {
+                winnerText.text = "Sorry-- you lose";
+            }
+            else if (player.ChanceHandValue() > dealer.ChanceHandValue())
+            {
+                winnerText.text = "You win";
+            }
+            else
+            {
+                winnerText.text = "Draw";
+            }
         }
-    }
-
-    /*
-        IEnumerator DealersTurn()
+        if (GUI.Button(new Rect(Screen.width / 2 + 270, Screen.height / 10 - 50, 200, 30), "Back"))
         {
-            continueButton.interactable = false;
-            revealButton.interactable = false;
+            SceneManager.LoadScene(1);
+        }
 
-            CardView view = dealer.GetComponent<CardView>();
-            view.ShowCards();
-            yield return new WaitForSeconds(1f);
-
-
-            // Compare the two hands should be around here
-            // CardStack.cs has a comment out function call Value(), it will take the mod 10 of ChanceHandValue()
-            // cannot put it in here
-
-            yield return new WaitForSeconds(1f);
-            playAgainButton.interactable = true;
-        }*/
+    }
 }

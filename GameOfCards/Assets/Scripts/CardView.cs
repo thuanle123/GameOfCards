@@ -6,11 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(CardStack))]
 public class CardView : MonoBehaviour
 {
-    // Stuff
-    // when you hit draw, reverse will take the top of of the deck instead of bottom
     CardStack deck;
     Dictionary<int, GameObject> fetchedCards; // change from list to dictionary, key that unlocks
-    //int lastCount;
     public Vector3 start;
     public float cardOffset;
     public bool faceUp = false;
@@ -23,7 +20,6 @@ public class CardView : MonoBehaviour
         fetchedCards = new Dictionary<int, GameObject>();
         deck = GetComponent<CardStack>();
         ShowCards();
-        //lastCount = deck.CardCount; //number of card in the deck
         deck.CardRemoved += Deck_CardRemoved;
 	}
 
@@ -85,24 +81,10 @@ public class CardView : MonoBehaviour
 
         SpriteRenderer spriteRenderer = cardCopy.GetComponent<SpriteRenderer>();
 
-        /*
-        // This too much sure the card doesn't look like
-        // it being pulled from the bottom of the deck
-        if (reverseLayer)
-        {
-            spriteRenderer.sortingOrder = 51 - positionalIndex;
-        }
-        else
-        {
-            spriteRenderer.sortingOrder = positionalIndex;
-        }
-        
-        //Debug.Log("Hand Value = " + deck.ChanceHandValue());
-        //Debug.Log("Test Value = " + deck.Value());
-        */
-
         spriteRenderer.sortingOrder = 51 - positionalIndex;
         fetchedCards.Add(cardIndex, cardCopy); // The line that actually displays the card
+        //Debug.Log("Hand Value = " + deck.ChanceHandValue());
+        //Debug.Log("Test Value = " + deck.Value());
     }
-	
+
 }

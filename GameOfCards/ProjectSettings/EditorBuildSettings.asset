@@ -18,11 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/OptionMenu.unity
     guid: f2e376ff9de3d10409dc934ea4baaf41
   - enabled: 1
-    path: Assets/Scenes/AnotherTest.unity
-    guid: eadf18c89b781184ba41afe38d2f8bb6
-  - enabled: 1
     path: Assets/Scenes/Chance.unity
-    guid: 60d1b094328a90a4b80b49f1d633deb9
+    guid: b95739c255e6e1d4ea68bb0a2d3b6238
   - enabled: 1
     path: Assets/Scenes/BlackJack.unity
     guid: 91b4e4a3bae92bb42a4a256c2190cdcc

@@ -38,7 +38,6 @@ public class CardStack : MonoBehaviour
         }
     }
 
-
     //This is your Card Draw method(), i just move it up here
     public int Draw()
     {
@@ -59,7 +58,7 @@ public class CardStack : MonoBehaviour
     }
 
     //calculate the hand value
-    public int ChanceHandValue()
+    public int ChanceSumValue()
     {
         int sum = 0;
         foreach(int card in GetCards())
@@ -69,25 +68,31 @@ public class CardStack : MonoBehaviour
             // 1         2
             // 2         3
             //get the value of the deck when you add 1
-            int cardRank = (card % 13) +1;
+            int cardRank = (card % 13);
+            
+            if (cardRank < 10)
+            {
+                cardRank += 1;
+            }
+            else if ( cardRank >= 10)
+            {
+                cardRank = 11;
+            }
             sum = sum + cardRank;
         }
         return sum;
     }
-    /*
-    public int Value()
+    
+    public int ChanceHandValue()
     {
-        int sum = ChanceHandValue();
-        if (sum >= 33)
-        {
-            sum = sum + 0;
-        }
-        else
+        int sum = ChanceSumValue();
+        if (sum < 33)
         {
             sum = sum % 10;
         }
         return sum;
-    }*/
+    }
+
     public void Shuffle()
     {
         cards.Clear();
