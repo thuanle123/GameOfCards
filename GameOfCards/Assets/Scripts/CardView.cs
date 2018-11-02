@@ -83,8 +83,9 @@ public class CardView : MonoBehaviour
         cardModel.cardIndex = cardIndex;
         cardModel.ToggleFace(faceUp);
 
-        // so card spread looks normal
         SpriteRenderer spriteRenderer = cardCopy.GetComponent<SpriteRenderer>();
+
+        /*
         // This too much sure the card doesn't look like
         // it being pulled from the bottom of the deck
         if (reverseLayer)
@@ -95,10 +96,13 @@ public class CardView : MonoBehaviour
         {
             spriteRenderer.sortingOrder = positionalIndex;
         }
-        fetchedCards.Add(cardIndex, cardCopy);
-
+        
         //Debug.Log("Hand Value = " + deck.ChanceHandValue());
         //Debug.Log("Test Value = " + deck.Value());
+        */
+
+        spriteRenderer.sortingOrder = 51 - positionalIndex;
+        fetchedCards.Add(cardIndex, cardCopy); // The line that actually displays the card
     }
 	
 }
