@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class CardChanceGamePlay : MonoBehaviour
+public class Chance : MonoBehaviour
 {
     int dealersFirstCard = -1;
 
@@ -10,7 +10,7 @@ public class CardChanceGamePlay : MonoBehaviour
     public CardStack dealer;
     public CardStack player;
     public CardStack deck;
-    
+
     // Create these buttons in Chance scene
     public Button continueButton;
     public Button revealButton;
@@ -37,7 +37,7 @@ public class CardChanceGamePlay : MonoBehaviour
     public void PlayAgain()
     {
         playAgainButton.interactable = false;
-        
+
         // PROBLEM: THE CARD RESET INSTEAD OF RUNNING OUT OF THE STACK
         // Probably happen during shuffle function
         // no swap so it's okay(?)
@@ -66,22 +66,22 @@ public class CardChanceGamePlay : MonoBehaviour
         }
     }
 
-/*
-    IEnumerator DealersTurn()
-    {
-        continueButton.interactable = false;
-        revealButton.interactable = false;
+    /*
+        IEnumerator DealersTurn()
+        {
+            continueButton.interactable = false;
+            revealButton.interactable = false;
 
-        CardView view = dealer.GetComponent<CardView>();
-        view.ShowCards();
-        yield return new WaitForSeconds(1f);
+            CardView view = dealer.GetComponent<CardView>();
+            view.ShowCards();
+            yield return new WaitForSeconds(1f);
 
 
-        // Compare the two hands should be around here
-        // CardStack.cs has a comment out function call Value(), it will take the mod 10 of ChanceHandValue()
-        // cannot put it in here
+            // Compare the two hands should be around here
+            // CardStack.cs has a comment out function call Value(), it will take the mod 10 of ChanceHandValue()
+            // cannot put it in here
 
-        yield return new WaitForSeconds(1f);
-        playAgainButton.interactable = true;
-    }*/
+            yield return new WaitForSeconds(1f);
+            playAgainButton.interactable = true;
+        }*/
 }

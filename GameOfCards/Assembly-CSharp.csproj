@@ -61,17 +61,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Card.cs" />
-    <Compile Include="Assets\Scripts\CardChanceGameplay.cs" />
+    <Compile Include="Assets\Scripts\Archive\Card.cs" />
+    <Compile Include="Assets\Scripts\Archive\Deck.cs" />
     <Compile Include="Assets\Scripts\CardModel.cs" />
     <Compile Include="Assets\Scripts\CardRemoved.cs" />
     <Compile Include="Assets\Scripts\CardStack.cs" />
     <Compile Include="Assets\Scripts\CardView.cs" />
+    <Compile Include="Assets\Scripts\Chance.cs" />
     <Compile Include="Assets\Scripts\DebugDealer.cs" />
-    <Compile Include="Assets\Scripts\Deck.cs" />
-    <Compile Include="Assets\Scripts\DeckTest.cs" />
-    <Compile Include="Assets\Scripts\Hand.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\RemovedHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
