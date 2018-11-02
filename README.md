@@ -42,6 +42,10 @@ README format: [Github Format](https://help.github.com/articles/basic-writing-an
  - Slack
  - Trello
 
+### Coding Guidelines
+
+ - Unity http://wiki.unity3d.com/index.php/Csharp_Coding_Guidelines
+
 ### Installation guide
 
  - Download Unity Personal [Link](https://store.unity.com/download?ref=personal)
