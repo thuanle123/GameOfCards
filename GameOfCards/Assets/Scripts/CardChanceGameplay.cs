@@ -62,7 +62,7 @@ public class CardChanceGamePlay : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             player.push(deck.Draw());
-            dealer.push(Deck.Draw()); // may or may not work?
+            dealer.push(deck.Draw()); // may or may not work?
         }
     }
 
