@@ -9,6 +9,7 @@ public class CardStack : MonoBehaviour
 
     public bool isGameDeck;
     public event RemovedEventHandler CardRemoved; //delegate
+
     public bool HasCards{ get { return cards != null && cards.Count > 0; } }
 
     // need a public method to numerate through them all

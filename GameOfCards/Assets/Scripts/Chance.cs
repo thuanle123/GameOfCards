@@ -59,10 +59,25 @@ public class Chance : MonoBehaviour
 
     void StartGame()
     {
-        for (int i = 0; i < 3; i++)
+    }
+
+    void OnGUI()
+    {
+        if (GUI.Button(new Rect(10, 10, 256, 28), "Draw"))
         {
-            player.push(deck.Draw());
-            dealer.push(deck.Draw()); // may or may not work?
+            if (player.HasCards && dealer.HasCards)
+            {
+               for (int i = 0; i < 3; i++)
+                {
+                    player.Draw();
+                    dealer.Draw();
+                }
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                player.push(deck.Draw());
+                dealer.push(deck.Draw());
+            }
         }
     }
 
