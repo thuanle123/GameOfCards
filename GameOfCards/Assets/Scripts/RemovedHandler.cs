@@ -1,0 +1,1 @@
+﻿public delegate void RemovedEventHandler(object sender, CardRemoved e);
