@@ -31,11 +31,11 @@ A collection of cards games made on Unity 2D.
 
  - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-2-%F0%9F%9A%80-22-10-18-04-11-18)
  - Sprint #2 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%232.pdf)
- - Sprint #2 Report
+ - Sprint #2 Report [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%232.pdf)
  
  ### Sprint #3
  - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-3-%F0%9F%9A%80-05-11-18-18-11-18)
- - Sprint #3 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%203.pdf)
+ - Sprint #3 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20#2%20Report.pdf)
  
 ### Technologies
 
