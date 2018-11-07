@@ -57,5 +57,5 @@ A collection of cards games made on Unity 2D.
  - [Kenny Sounds Affect](https://kenney.nl/assets/casino-audio)
  - [Unity Scripting](https://unity3d.com/learn/tutorials/s/scripting), [UI](https://unity3d.com/learn/tutorials/s/user-interface-ui), [2D Games](https://unity3d.com/learn/tutorials/s/2d-game-creation), [Audio](https://unity3d.com/learn/tutorials/s/audio)
  - [Multiplayer](https://unity3d.com/learn/tutorials/s/multiplayer-networking)
- - [Unity Coding Guidelines](http://wiki.unity3d.com/index.php/Csharp_Coding_Guidelines
+ - [Unity Coding Guidelines](http://wiki.unity3d.com/index.php/Csharp_Coding_Guidelines)
 
