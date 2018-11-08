@@ -17,7 +17,7 @@ public class GameRules : MonoBehaviour {
     {
         if(Panel != null)//Checks to see if there is a panel. 
         {
-            Panel.SetActive(true); //If panel is found, open the pannel. 
+            Panel.SetActive(true); //If panel is found, open the panel. 
         }
 
     }
