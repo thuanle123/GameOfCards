@@ -17,13 +17,9 @@ public class GameRules : MonoBehaviour {
     {
         if(Panel != null)//Checks to see if there is a panel. 
         {
-            Panel.SetActive(true); //If panel is found, open the panel. 
+            if (Panel.activeSelf) { Panel.SetActive(false); } //If the panel is being displayed, close it. 
+            else { Panel.SetActive(true); } //If the button has not been pressed, show panel.
         }
 
-    }
-
-    public void Back() //Back function. 
-    {
-        Panel.SetActive(false); //When the back button is pressed, exits rule menu. 
     }
 }
