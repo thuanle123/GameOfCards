@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptsUnitTest", "ScriptsUnitTest.csproj", "{E43CD53F-25ED-FE0C-601B-64EE8A8F3DAA}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{4EFD22E6-AA44-BA20-8960-DD0F9EFA55CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests.csproj", "{4E3D9B5C-CFE1-8B81-08BC-A1EBB20C125A}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E43CD53F-25ED-FE0C-601B-64EE8A8F3DAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E43CD53F-25ED-FE0C-601B-64EE8A8F3DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E43CD53F-25ED-FE0C-601B-64EE8A8F3DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E43CD53F-25ED-FE0C-601B-64EE8A8F3DAA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4EFD22E6-AA44-BA20-8960-DD0F9EFA55CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4EFD22E6-AA44-BA20-8960-DD0F9EFA55CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EFD22E6-AA44-BA20-8960-DD0F9EFA55CA}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -61,17 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Archive\Card.cs" />
-    <Compile Include="Assets\Scripts\Archive\Deck.cs" />
-    <Compile Include="Assets\Scripts\CardModel.cs" />
-    <Compile Include="Assets\Scripts\CardRemoved.cs" />
-    <Compile Include="Assets\Scripts\CardStack.cs" />
-    <Compile Include="Assets\Scripts\CardView.cs" />
-    <Compile Include="Assets\Scripts\Chance.cs" />
-    <Compile Include="Assets\Scripts\DebugDealer.cs" />
-    <Compile Include="Assets\Scripts\GameRules.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\RemovedHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -342,6 +331,9 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/Art Parkeenvincha/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>C:/Users/Art Parkeenvincha/Desktop/Classes/CMPS 115/GameOfCards/GameOfCards/Assets/NSubstitute.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
     </Reference>
@@ -369,6 +361,12 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="ScriptsUnitTest.csproj">
+      <Project>{E43CD53F-25ED-FE0C-601B-64EE8A8F3DAA}</Project>
+      <Name>ScriptsUnitTest</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
