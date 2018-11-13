@@ -10,10 +10,10 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{4EFD22E6-AA44-BA20-8960-DD0F9EFA55CA}</ProjectGuid>
+    <ProjectGuid>{4E3D9B5C-CFE1-8B81-08BC-A1EBB20C125A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -61,83 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Archive\Card.cs" />
-    <Compile Include="Assets\Scripts\Archive\Deck.cs" />
-    <Compile Include="Assets\Scripts\CardModel.cs" />
-    <Compile Include="Assets\Scripts\CardRemoved.cs" />
-    <Compile Include="Assets\Scripts\CardStack.cs" />
-    <Compile Include="Assets\Scripts\CardView.cs" />
-    <Compile Include="Assets\Scripts\Chance.cs" />
-    <Compile Include="Assets\Scripts\DebugDealer.cs" />
-    <Compile Include="Assets\Scripts\GameRules.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\RemovedHandler.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-    <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Art Parkeenvincha/Desktop/Classes/CMPS 115/GameOfCards/GameOfCards/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Art Parkeenvincha/Desktop/Classes/CMPS 115/GameOfCards/GameOfCards/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Art Parkeenvincha/Desktop/Classes/CMPS 115/GameOfCards/GameOfCards/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Art Parkeenvincha/Desktop/Classes/CMPS 115/GameOfCards/GameOfCards/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
+    <Compile Include="Assets\Scripts\Tests\DeckUnitTest.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -234,6 +158,9 @@
     <Reference Include="UnityEngine.SharedInternalsModule">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.SpatialTrackingModule">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpatialTrackingModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.SpriteMaskModule">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
     </Reference>
@@ -321,53 +248,104 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Timeline">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.GoogleAudioSpatializer">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.GoogleAudioSpatializer">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.HoloLens">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>C:/Users/Art Parkeenvincha/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Art Parkeenvincha/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>C:/Users/Art Parkeenvincha/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/Editor/UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>C:/Users/Art Parkeenvincha/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/Art Parkeenvincha/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
-      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/mscorlib.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core">
-      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Core.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/System.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization">
-      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Runtime.Serialization.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/System.Runtime.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml">
-      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Xml.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/System.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq">
-      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/System.Xml.Linq.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/System.Xml.Linq.dll</HintPath>
     </Reference>
     <Reference Include="UnityScript">
-      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/UnityScript.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/UnityScript.dll</HintPath>
     </Reference>
     <Reference Include="UnityScript.Lang">
-      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/UnityScript.Lang.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/UnityScript.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Boo.Lang">
-      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/2018.2.14f1/Editor/Data/MonoBleedingEdge/lib/mono/2.0-api/Boo.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
