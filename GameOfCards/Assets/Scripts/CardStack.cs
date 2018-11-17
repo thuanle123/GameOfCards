@@ -87,6 +87,7 @@ public class CardStack : MonoBehaviour
     public int BlackjackSumValue()
     {
         int sum = 0;
+        int aces = 0;
         foreach (int card in GetCards())
         {
             // give the remainder
@@ -96,16 +97,34 @@ public class CardStack : MonoBehaviour
             //get the value of the deck when you add 1
             int cardRank = (card % 13);
 
+            if (cardRank == 0)
+            {
+                aces++;
+            }
             if (cardRank < 10)
             {
                 cardRank += 1;
+                sum = sum + cardRank;
             }
             else if (cardRank >= 10)
             {
                 cardRank = 10;
+                sum = sum + cardRank;
             }
-            sum = sum + cardRank;
+
+            for(int i = 0; i < aces; i++)
+            {
+                if (sum + 11 <= 21)
+                {
+                    sum = sum + 11;
+                } else
+                {
+                    sum = sum + 1;
+                }
+            }
+            
         }
+        Debug.Log("sum = " + sum);
         return sum;
     }
     

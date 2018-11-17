@@ -66,6 +66,7 @@ public class Blackjack : MonoBehaviour {
     public void Hit()
     {
         player.push(deck.Draw());
+        Debug.Log("Player score = " + player.BlackjackSumValue());
         if (player.BlackjackSumValue() > 21)
         {
             // Player is bust.
