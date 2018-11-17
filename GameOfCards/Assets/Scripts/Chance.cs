@@ -74,7 +74,8 @@ public class Chance : MonoBehaviour
 
         // Update hand score.
         playerHandScore.text = player.ChanceHandValue().ToString();
-        dealerHandScore.text = dealer.ChanceHandValue().ToString();
+        //dealerHandScore.text = dealer.ChanceHandValue().ToString();
+        dealerHandScore.text = "";
 
         // Debugging
         if (player.cards.Count == 3 && dealer.cards.Count == 3)
@@ -184,7 +185,8 @@ public class Chance : MonoBehaviour
             }
             // Update hand scores.
             playerHandScore.text = player.ChanceHandValue().ToString();
-            dealerHandScore.text = dealer.ChanceHandValue().ToString();
+            //dealerHandScore.text = dealer.ChanceHandValue().ToString();
+            dealerHandScore.text = "";
         }
         else
         {

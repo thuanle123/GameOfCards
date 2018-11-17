@@ -82,6 +82,32 @@ public class CardStack : MonoBehaviour
         }
         return sum;
     }
+
+    // same as ChanceSumValue() but face cards are worth 10.
+    public int BlackjackSumValue()
+    {
+        int sum = 0;
+        foreach (int card in GetCards())
+        {
+            // give the remainder
+            // 0         Ace
+            // 1         2
+            // 2         3
+            //get the value of the deck when you add 1
+            int cardRank = (card % 13);
+
+            if (cardRank < 10)
+            {
+                cardRank += 1;
+            }
+            else if (cardRank >= 10)
+            {
+                cardRank = 10;
+            }
+            sum = sum + cardRank;
+        }
+        return sum;
+    }
     
     public int ChanceHandValue()
     {

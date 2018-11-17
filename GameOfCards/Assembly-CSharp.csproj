@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Archive\Card.cs" />
     <Compile Include="Assets\Scripts\Archive\Deck.cs" />
+    <Compile Include="Assets\Scripts\Blackjack.cs" />
     <Compile Include="Assets\Scripts\CardModel.cs" />
     <Compile Include="Assets\Scripts\CardRemoved.cs" />
     <Compile Include="Assets\Scripts\CardStack.cs" />
