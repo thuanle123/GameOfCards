@@ -880,7 +880,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Swap Card
+  m_Text: 'Hit
+
+'
 --- !u!222 &413703915
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1555,7 +1557,8 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 0}
+  m_PlayerPrefab: {fileID: 1416650773158262, guid: 157603c5bf9f36d49938703b35be46ab,
+    type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
@@ -1613,7 +1616,7 @@ MonoBehaviour:
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
   matchName: default
-  matchSize: 4
+  matchSize: 2
   isNetworkActive: 0
   matchMaker: {fileID: 0}
 --- !u!4 &943950471
@@ -2142,6 +2145,7 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114636461144071026, guid: 157603c5bf9f36d49938703b35be46ab, type: 2}
+    - {fileID: 114461669590977886, guid: 157603c5bf9f36d49938703b35be46ab, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 157603c5bf9f36d49938703b35be46ab, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1454879767 stripped
