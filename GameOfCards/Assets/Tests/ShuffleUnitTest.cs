@@ -33,7 +33,7 @@ public class ShuffleUnitTest{
         {
             
         }
-        Assert.That(newDeck, Is.EqualTo(oldDeck));
+        Assert.That(newDeck, Is.EqualTo(oldDeck)); //Shoud be not equal
     }
 
     // Generates a stub for CardStack that simulates the deck
