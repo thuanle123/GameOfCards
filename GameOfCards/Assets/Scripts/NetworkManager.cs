@@ -1,82 +1,165 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class NetworkManager : MonoBehaviour
+using UnityEngine.Networking;
+
+using UnityEngine.Networking.Match;
+
+public class CustomManager : NetworkManager
 {
-    //    private const string typeName = "UniqueGameName";
-    //    private const string gameName = "RoomName";
-    private const string typeName = "GameOfCard";
-    private const string gameName = "Blackjack";
-    private bool isRefreshingHostList = false;
-    private HostData[] hostList;
 
-    public GameObject playerPrefab;
+    // Server callbacks
 
-    void OnGUI()
+    public override void OnServerConnect(NetworkConnection conn)
     {
-        if (!Network.isClient && !Network.isServer)
+
+        Debug.Log("A client connected to the server: " + conn);
+
+    }
+
+    public override void OnServerDisconnect(NetworkConnection conn)
+    {
+
+        NetworkServer.DestroyPlayersForConnection(conn);
+
+        if (conn.lastError != NetworkError.Ok)
         {
-            if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
-                StartServer();
 
-            if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts"))
-                RefreshHostList();
+            if (LogFilter.logError) { Debug.LogError("ServerDisconnected due to error: " + conn.lastError); }
 
-            if (hostList != null)
-            {
-                for (int i = 0; i < hostList.Length; i++)
-                {
-                    if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName))
-                        JoinServer(hostList[i]);
-                }
-            }
         }
+
+        Debug.Log("A client disconnected from the server: " + conn);
+
     }
 
-    private void StartServer()
+    public override void OnServerReady(NetworkConnection conn)
     {
-        Network.InitializeServer(5, 25000, !Network.HavePublicAddress());
-        MasterServer.RegisterHost(typeName, gameName);
+
+        NetworkServer.SetClientReady(conn);
+
+        Debug.Log("Client is set to the ready state (ready to receive state updates): " + conn);
+
     }
 
-    void OnServerInitialized()
+    public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
-        SpawnPlayer();
+
+        var player = (GameObject)GameObject.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+
+        NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+
+        Debug.Log("Client has requested to get his player added to the game");
+
     }
 
-
-    void Update()
+    public override void OnServerRemovePlayer(NetworkConnection conn, PlayerController player)
     {
-        if (isRefreshingHostList && MasterServer.PollHostList().Length > 0)
+
+        if (player.gameObject != null)
+
+            NetworkServer.Destroy(player.gameObject);
+
+    }
+
+    public override void OnServerError(NetworkConnection conn, int errorCode)
+    {
+
+        Debug.Log("Server network error occurred: " + (NetworkError)errorCode);
+
+    }
+
+    public override void OnStartHost()
+    {
+
+        Debug.Log("Host has started");
+
+    }
+
+    public override void OnStartServer()
+    {
+
+        Debug.Log("Server has started");
+
+    }
+
+    public override void OnStopServer()
+    {
+
+        Debug.Log("Server has stopped");
+
+    }
+
+    public override void OnStopHost()
+    {
+
+        Debug.Log("Host has stopped");
+
+    }
+
+    // Client callbacks
+
+    public override void OnClientConnect(NetworkConnection conn)
+
+    {
+
+        base.OnClientConnect(conn);
+
+        Debug.Log("Connected successfully to server, now to set up other stuff for the client...");
+
+    }
+
+    public override void OnClientDisconnect(NetworkConnection conn)
+    {
+
+        StopClient();
+
+        if (conn.lastError != NetworkError.Ok)
+
         {
-            isRefreshingHostList = false;
-            hostList = MasterServer.PollHostList();
+
+            if (LogFilter.logError) { Debug.LogError("ClientDisconnected due to error: " + conn.lastError); }
+
         }
+
+        Debug.Log("Client disconnected from server: " + conn);
+
     }
 
-    private void RefreshHostList()
+    public override void OnClientError(NetworkConnection conn, int errorCode)
     {
-        if (!isRefreshingHostList)
-        {
-            isRefreshingHostList = true;
-            MasterServer.RequestHostList(typeName);
-        }
+
+        Debug.Log("Client network error occurred: " + (NetworkError)errorCode);
+
     }
 
-
-    private void JoinServer(HostData hostData)
+    public override void OnClientNotReady(NetworkConnection conn)
     {
-        Network.Connect(hostData);
+
+        Debug.Log("Server has set client to be not-ready (stop getting state updates)");
+
     }
 
-    void OnConnectedToServer()
+    public override void OnStartClient(NetworkClient client)
     {
-        SpawnPlayer();
+
+        Debug.Log("Client has started");
+
     }
 
-
-    private void SpawnPlayer()
+    public override void OnStopClient()
     {
-        Network.Instantiate(playerPrefab, Vector3.up * 5, Quaternion.identity, 0);
+
+        Debug.Log("Client has stopped");
+
     }
+
+    public override void OnClientSceneChanged(NetworkConnection conn)
+    {
+
+        base.OnClientSceneChanged(conn);
+
+        Debug.Log("Server triggered scene change and we've done the same, do any extra work here for the client...");
+
+    }
+
 }
