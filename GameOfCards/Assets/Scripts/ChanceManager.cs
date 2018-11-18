@@ -4,18 +4,49 @@ using UnityEngine.Networking;
 
 using UnityEngine.Networking.Match;
 
-public class CustomManager : NetworkManager
-{
+using UnityEngine.SceneManagement;
 
+public class ChanceManager : NetworkManager
+{
     // Server callbacks
 
     public override void OnServerConnect(NetworkConnection conn)
     {
-
         Debug.Log("A client connected to the server: " + conn);
+        SceneManager.LoadScene(6);
+
+    }
+    public override void OnStartHost()
+    {
+
+        Debug.Log("Host has started");
+        SceneManager.LoadScene(6);
+
+
+    }
+    public override void OnClientConnect(NetworkConnection conn)
+    {
+
+        base.OnClientConnect(conn);
+
+        Debug.Log("Connected successfully to server, now to set up other stuff for the client...");
+        SceneManager.LoadScene(6);
+    }
+    public override void OnStopServer()
+    {
+
+        Debug.Log("Server has stopped");
+        SceneManager.LoadScene(0);
 
     }
 
+    public override void OnStopHost()
+    {
+
+        Debug.Log("Host has stopped");
+        SceneManager.LoadScene(0);
+
+    }
     public override void OnServerDisconnect(NetworkConnection conn)
     {
 
@@ -29,9 +60,25 @@ public class CustomManager : NetworkManager
         }
 
         Debug.Log("A client disconnected from the server: " + conn);
-
+        SceneManager.LoadScene(0);
     }
+    public override void OnClientDisconnect(NetworkConnection conn)
+    {
 
+        StopClient();
+
+        if (conn.lastError != NetworkError.Ok)
+
+        {
+
+            if (LogFilter.logError) { Debug.LogError("ClientDisconnected due to error: " + conn.lastError); }
+
+        }
+
+        Debug.Log("Client disconnected from server: " + conn);
+        SceneManager.LoadScene(0);
+    }
+    /*
     public override void OnServerReady(NetworkConnection conn)
     {
 
@@ -68,12 +115,7 @@ public class CustomManager : NetworkManager
 
     }
 
-    public override void OnStartHost()
-    {
-
-        Debug.Log("Host has started");
-
-    }
+    
 
     public override void OnStartServer()
     {
@@ -82,48 +124,9 @@ public class CustomManager : NetworkManager
 
     }
 
-    public override void OnStopServer()
-    {
-
-        Debug.Log("Server has stopped");
-
-    }
-
-    public override void OnStopHost()
-    {
-
-        Debug.Log("Host has stopped");
-
-    }
-
     // Client callbacks
 
-    public override void OnClientConnect(NetworkConnection conn)
-
-    {
-
-        base.OnClientConnect(conn);
-
-        Debug.Log("Connected successfully to server, now to set up other stuff for the client...");
-
-    }
-
-    public override void OnClientDisconnect(NetworkConnection conn)
-    {
-
-        StopClient();
-
-        if (conn.lastError != NetworkError.Ok)
-
-        {
-
-            if (LogFilter.logError) { Debug.LogError("ClientDisconnected due to error: " + conn.lastError); }
-
-        }
-
-        Debug.Log("Client disconnected from server: " + conn);
-
-    }
+    
 
     public override void OnClientError(NetworkConnection conn, int errorCode)
     {
@@ -161,5 +164,5 @@ public class CustomManager : NetworkManager
         Debug.Log("Server triggered scene change and we've done the same, do any extra work here for the client...");
 
     }
-
+    */
 }
