@@ -101,7 +101,7 @@ public class CardStack : MonoBehaviour
             {
                 aces++;
             }
-            if (cardRank < 10)
+             else if (cardRank < 10)
             {
                 cardRank += 1;
                 sum = sum + cardRank;

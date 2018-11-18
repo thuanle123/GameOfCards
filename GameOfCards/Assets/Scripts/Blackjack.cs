@@ -23,6 +23,8 @@ public class Blackjack : MonoBehaviour {
     public Button standButton;
 
     public int dealersFirstCard = -1;
+    public int roundsWonPlayer = 0;
+    public int roundsWonDealer = 0;
 
     /* Blackjack Rules:
      * The player attemps to beat the dealer by getting a count as 
@@ -67,6 +69,7 @@ public class Blackjack : MonoBehaviour {
     {
         player.push(deck.Draw());
         Debug.Log("Player score = " + player.BlackjackSumValue());
+        playerHandScore.text = player.BlackjackSumValue().ToString();
         if (player.BlackjackSumValue() > 21)
         {
             // Player is bust.
@@ -121,6 +124,10 @@ public class Blackjack : MonoBehaviour {
             player.push(deck.Draw());
             dealer.push(deck.Draw());
         }
+
+        winnerText.text = "";
+        dealerHandScore.text = "";
+        playerHandScore.text = player.BlackjackSumValue().ToString();
     }
 
     void dealerHit ()
@@ -155,15 +162,18 @@ public class Blackjack : MonoBehaviour {
             yield return new WaitForSeconds(1f);
         }
 
-        int dealerScore = dealer.BlackjackSumValue();
-        int playerScore = player.BlackjackSumValue();
+        dealerHandScore.text = dealer.BlackjackSumValue().ToString();
 
         if(player.BlackjackSumValue() > 21 || (dealer.BlackjackSumValue() >= player.BlackjackSumValue() && dealer.BlackjackSumValue() <= 21))
         {
             winnerText.text = "You lose.";
+            roundsWonDealer++;
+            dealerScore.text = roundsWonDealer.ToString();
         } else if (dealer.BlackjackSumValue() > 21 || (player.BlackjackSumValue() <= 21 && player.BlackjackSumValue() > dealer.BlackjackSumValue()))
         {
             winnerText.text = "You win!";
+            roundsWonPlayer++;
+            playerScore.text = roundsWonPlayer.ToString();
         } else
         {
             winnerText.text = "The house wins.";
