@@ -34,6 +34,9 @@ public class MainMenu : MonoBehaviour {
             case (5):
                 SceneManager.LoadScene(5);
                 break;
+            case (6):
+                SceneManager.LoadScene(6);
+                break;
         }
     }
 	

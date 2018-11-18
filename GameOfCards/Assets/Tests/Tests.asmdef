@@ -1,0 +1,14 @@
+{
+    "name": "Tests",
+    "references": [
+        "ScriptsUnitTest"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
