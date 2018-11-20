@@ -101,7 +101,7 @@ public class CardStack : MonoBehaviour
             {
                 aces++;
             }
-             else if (cardRank < 10)
+            else if (cardRank < 10)
             {
                 cardRank += 1;
                 sum = sum + cardRank;
@@ -110,19 +110,18 @@ public class CardStack : MonoBehaviour
             {
                 cardRank = 10;
                 sum = sum + cardRank;
-            }
-
-            for(int i = 0; i < aces; i++)
+            }  
+        }
+        for (int i = 0; i < aces; i++)
+        {
+            if (sum + 11 <= 21)
             {
-                if (sum + 11 <= 21)
-                {
-                    sum = sum + 11;
-                } else
-                {
-                    sum = sum + 1;
-                }
+                sum = sum + 11;
             }
-            
+            else
+            {
+                sum = sum + 1;
+            }
         }
         Debug.Log("sum = " + sum);
         return sum;

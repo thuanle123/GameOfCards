@@ -85,6 +85,7 @@ public class CardView : MonoBehaviour
         fetchedCards.Add(cardIndex, cardCopy); // The line that actually displays the card
         //Debug.Log("Hand Value = " + deck.ChanceHandValue());
         //Debug.Log("Test Value = " + deck.Value());
+        Debug.Log("Test Value = " + deck.BlackjackSumValue());
     }
 
 }

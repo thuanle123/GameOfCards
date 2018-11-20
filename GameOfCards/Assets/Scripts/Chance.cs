@@ -59,7 +59,7 @@ public class Chance : MonoBehaviour
     // TODO: Convert "Back" button from onGUI() to a public method like the rest of our buttons?
 
     // Function for player to swap a random card with dealer.
-    public void swapCard()
+    public void SwapCard()
     {
         // Pick random cards from both hands to be swapped.
         int randomPlayer = Random.Range(0, 3);
@@ -76,7 +76,8 @@ public class Chance : MonoBehaviour
         playerHandScore.text = player.ChanceHandValue().ToString();
         //dealerHandScore.text = dealer.ChanceHandValue().ToString();
         dealerHandScore.text = "";
-
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
+        /*
         // Debugging
         if (player.cards.Count == 3 && dealer.cards.Count == 3)
         { 
@@ -91,14 +92,14 @@ public class Chance : MonoBehaviour
             {
                 Debug.Log(dealer.cards[i]);
             }
-        }
+        }*/
 
         // Grey out Swap Card button
         swapCardButton.interactable = false;
     }
 
     // Function to end your turn for the round.
-    public void endTurn()
+    public void EndTurn()
     {
         // Grey out buttons.
         endTurnButton.interactable = false;
@@ -133,19 +134,22 @@ public class Chance : MonoBehaviour
     #endregion
 
     // Function to shuffle the deck and restart the game.
+    // Play the cardShuffle music
     public void PlayAgain()
     {
         deck.Shuffle();
         winnerText.text = "";
         Start();
+        FindObjectOfType<AudioManager>().Play("cardShuffle");
     }
 
     // Function to move on to the next round of the game.
-    public void nextRound()
+    public void NextRound()
     {
         nextRoundButton.interactable = false;
         winnerText.text = "";
         StartGame();
+        FindObjectOfType<AudioManager>().Play("cardFan1");
     }
 
     // Starts a new game of Chance.
@@ -154,6 +158,7 @@ public class Chance : MonoBehaviour
         playerScore.text = "0";
         dealerScore.text = "0";
         StartGame();
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     // Should change name to StartRound()?
@@ -195,7 +200,8 @@ public class Chance : MonoBehaviour
 
             if (roundWonByDealer > roundWonByPlayer)
             {
-                winnerText.text = "Dealer wins the game!";
+                //winnerText.text = "Dealer wins the game!";
+                winnerText.text = "GG go next you lost";
             }
             else if (roundWonByPlayer > roundWonByDealer)
             {
@@ -211,7 +217,7 @@ public class Chance : MonoBehaviour
             nextRoundButton.interactable = false;
             endTurnButton.interactable = false;
         }
-
+        /*
         // Debugging.
         if (player.cards.Count == 3 && dealer.cards.Count == 3)
         { 
@@ -226,18 +232,6 @@ public class Chance : MonoBehaviour
             {
                 Debug.Log(dealer.cards[i]);
             }
-        }
+        }*/
     }
-
-
-    // Should fix to normal back button?
-    void OnGUI()
-    {
-        if (GUI.Button(new Rect(Screen.width / 2 + 270, Screen.height / 10 - 50, 200, 30), "Back"))
-        {
-            SceneManager.LoadScene(1);
-        }
-
-    }
-
 }
