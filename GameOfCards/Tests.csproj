@@ -61,15 +61,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="Assets\Tests\BlackJackUnitTest.cs" />
-    <Compile Include="Assets\Tests\ChanceUnitTest.cs" />
-=======
     <Compile Include="Assets\Tests\CardStackFunctions.cs" />
-    <Compile Include="Assets\Tests\Chance.cs" />
->>>>>>> a5aeb0209d9bc4c7ff0781080849786bef36d0c3
+    <Compile Include="Assets\Tests\ChanceUnitTest.cs" />
     <Compile Include="Assets\Tests\DeckUnitTest.cs" />
-    <Compile Include="Assets\Tests\ShuffleUnitTest.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
