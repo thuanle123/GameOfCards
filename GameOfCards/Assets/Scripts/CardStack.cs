@@ -70,17 +70,13 @@ public class CardStack : MonoBehaviour
             //get the value of the deck when you add 1
             int cardRank = (card % 13);
             
-            if (cardRank < 9)
+            if (cardRank < 10)
             {
                 cardRank += 1;
             }
-            else if (cardRank == 9)
+            else if ( cardRank >= 10)
             {
-                cardRank = 0;
-            }
-            else if (cardRank >= 10)
-            {
-                cardRank = 10;
+                cardRank = 11;
             }
             sum = sum + cardRank;
         }
@@ -105,7 +101,7 @@ public class CardStack : MonoBehaviour
             {
                 aces++;
             }
-            else if (cardRank < 10)
+             else if (cardRank < 10)
             {
                 cardRank += 1;
                 sum = sum + cardRank;
@@ -114,18 +110,19 @@ public class CardStack : MonoBehaviour
             {
                 cardRank = 10;
                 sum = sum + cardRank;
-            }  
-        }
-        for (int i = 0; i < aces; i++)
-        {
-            if (sum + 11 <= 21)
-            {
-                sum = sum + 11;
             }
-            else
+
+            for(int i = 0; i < aces; i++)
             {
-                sum = sum + 1;
+                if (sum + 11 <= 21)
+                {
+                    sum = sum + 11;
+                } else
+                {
+                    sum = sum + 1;
+                }
             }
+            
         }
         Debug.Log("sum = " + sum);
         return sum;
@@ -134,7 +131,7 @@ public class CardStack : MonoBehaviour
     public int ChanceHandValue()
     {
         int sum = ChanceSumValue();
-        if (sum < 30)
+        if (sum < 33)
         {
             sum = sum % 10;
         }

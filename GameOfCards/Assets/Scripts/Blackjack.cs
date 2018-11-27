@@ -58,8 +58,7 @@ public class Blackjack : MonoBehaviour {
     // Use this for initialization
     void Start () {
         StartGame();
-        FindObjectOfType<AudioManager>().Play("cardShuffle");
-    }
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -77,7 +76,6 @@ public class Blackjack : MonoBehaviour {
             hitButton.interactable = false;
             standButton.interactable = false;
             StartCoroutine(DealersTurn());
-            FindObjectOfType<AudioManager>().Play("cardSlide6");
         }
     }
 
@@ -89,19 +87,23 @@ public class Blackjack : MonoBehaviour {
 
 
         StartCoroutine(DealersTurn());
-        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     public void PlayAgain()
     {
         playAgainButton.interactable = false;
+
+        //player.GetComponent<CardStackView>().Clear();
+        //dealer.GetComponent<cardStackView>().Clear();
+        //deck.GetComponent<cardStackView>().Clear();
+        //deck.CreateDeck();
+
         dealersFirstCard = -1;
 
         hitButton.interactable = true;
         standButton.interactable = true;
 
         StartGame();
-        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     void StartGame ()
