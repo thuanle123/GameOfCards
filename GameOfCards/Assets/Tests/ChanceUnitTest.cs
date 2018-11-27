@@ -6,7 +6,7 @@ using NSubstitute;
 using System.Collections.Generic;
 using System;
 
-public class Chance {
+public class ChanceUnitTest {
 
     [Test]
     public void test_a_chance_setup_created()//Checks that players have the same amount of cards in there hand. 
@@ -20,23 +20,31 @@ public class Chance {
         Assert.That(opponent.CardCount, Is.EqualTo(3));
 
     }
-    /*
+    
     void test_b_chance_is_swapped()//Checks that cards are swapped();
     {
         var chanceGame = GetChanceMock();
-        for()
+        var player;
+        var dealer;
+        var swapPlayer;
+        var swapDealer;
+        
+        for(int i=0; i<3; i++)
         {
-        //add card value
+            Debug.Log(player.cards[i]);
+            Debug.Log(dealer.cards[i]);
         }
 
-        for()
+        chanceGame.swapCard(); //Swapping the value of the cards. 
+
+        for (int i=0; i<3; i++)
         {
-        //add swapped value
+            Debug.Log(swapPlayer.cards[i]);
+            Debug.Log(swapDealer.cards[i]);
         }
 
-        compare the swapped value and unswapped value to see if changed
+        //compare the swapped value and unswapped value to see if changed
     }
-    */
 
     void test_c_is_winner()//
     {
@@ -54,14 +62,13 @@ public class Chance {
     }
 
 
-    private void GetChanceMock()
+    private Chance GetChanceMock()
     {
         var chance = Substitute.For<Chance>();
         var player = GetCardStackMock();
         var dealer = GetCardStackMock();
-
-        FillWithCards(player, 3);
-        FillWithCards(dealer, 3);
+        chance.Start();
+        return <Chance>
     }
 
 

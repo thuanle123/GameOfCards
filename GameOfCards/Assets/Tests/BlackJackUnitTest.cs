@@ -5,17 +5,15 @@ using System.Collections;
 
 public class BlackJack {
 
-    [Test]
-    public void BlackJackSimplePasses() {
-        // Use the Assert class to test conditions.
-    }
+    public void test_a_blackjack_setup_created()//Checks that players have the same amount of cards in there hand. 
+    {
 
-    // A UnityTest behaves like a coroutine in PlayMode
-    // and allows you to yield null to skip a frame in EditMode
-    [UnityTest]
-    public IEnumerator BlackJackWithEnumeratorPasses() {
-        // Use the Assert class to test conditions.
-        // yield to skip a frame
-        yield return null;
+        var player = GetCardStackMock();
+        var opponent = GetCardStackMock();
+        FillWithCards(player, 3);
+        FillWithCards(opponent, 3);
+        Assert.That(player.CardCount, Is.EqualTo(3));
+        Assert.That(opponent.CardCount, Is.EqualTo(3));
+
     }
 }
