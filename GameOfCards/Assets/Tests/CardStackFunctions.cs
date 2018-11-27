@@ -8,7 +8,8 @@ public class CardStackFunctions
     {
         var deck = Substitute.For<CardStack>();
         deck.isGameDeck = true;
-        deck.cards = new List<int>();   // Initialize fake List to simulate putting in and drawing cards
+        List<int> l = new List<int>();
+        deck.cards = l;   // Initialize fake List to simulate putting in and drawing cards
         return deck;
     }
 

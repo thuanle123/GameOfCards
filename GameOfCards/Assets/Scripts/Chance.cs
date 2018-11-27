@@ -148,7 +148,7 @@ public class Chance : MonoBehaviour
     }
 
     // Starts a new game of Chance.
-    void Start()
+    public void Start()
     {
         playerScore.text = "0";
         dealerScore.text = "0";
