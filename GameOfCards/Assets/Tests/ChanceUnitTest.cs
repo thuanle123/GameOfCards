@@ -26,6 +26,8 @@ public class ChanceUnitTest {
         var chanceGame = GetChanceMock();
         var player;
         var dealer;
+        FillWithCards(player,  3);
+        FillWithCards(dealer,  3);
         var swapPlayer;
         var swapDealer;
         
@@ -42,6 +44,7 @@ public class ChanceUnitTest {
             Debug.Log(swapPlayer.cards[i]);
             Debug.Log(swapDealer.cards[i]);
         }
+
 
         //compare the swapped value and unswapped value to see if changed
     }
