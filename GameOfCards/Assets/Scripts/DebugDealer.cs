@@ -7,7 +7,7 @@ public class DebugDealer : MonoBehaviour
     public CardStack dealer;
     public CardStack player;
 
-    int[] faceCard = new int[] { 0,9, 8};
+    int[] faceCard = new int[] { 8,12, 11};
     int count = 0;
 
     void OnGUI()

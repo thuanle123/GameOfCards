@@ -11,7 +11,6 @@ public class Chance : MonoBehaviour
     public CardStack dealer;
     public CardStack player;
     public CardStack deck;
-
     // Create these buttons in Chance scene
     public Button playAgainButton;
     public Text winnerText;
@@ -68,9 +67,16 @@ public class Chance : MonoBehaviour
         Debug.Log("randomD number = " + randomDealer);
 
         // Swap cards.
-        int tempCard = player.cards[randomPlayer];
-        player.cards[randomPlayer] = dealer.cards[randomDealer];
-        dealer.cards[randomDealer] = tempCard;
+        if (dealer.ChanceHandValue() <= 5)
+        {
+            int tempCard = player.cards[randomPlayer];
+            player.cards[randomPlayer] = dealer.cards[randomDealer];
+            dealer.cards[randomDealer] = tempCard;
+        }
+        else
+        {
+            winnerText.text = "Dealer refuses to swap with you";
+        }
 
         // Update hand score.
         playerHandScore.text = player.ChanceHandValue().ToString();
@@ -101,14 +107,14 @@ public class Chance : MonoBehaviour
     // Function to end your turn for the round.
     public void EndTurn()
     {
+       
         // Grey out buttons.
         endTurnButton.interactable = false;
         swapCardButton.interactable = false;
-
         // Update Hand Scores (do we want these to be visible?)
         playerHandScore.text = player.ChanceHandValue().ToString();
         dealerHandScore.text = dealer.ChanceHandValue().ToString();
-
+        
         // Compare hand values, update score/text.
         if (dealer.ChanceHandValue() > player.ChanceHandValue())
         {
@@ -200,8 +206,7 @@ public class Chance : MonoBehaviour
 
             if (roundWonByDealer > roundWonByPlayer)
             {
-                //winnerText.text = "Dealer wins the game!";
-                winnerText.text = "GG go next you lost";
+                winnerText.text = "Dealer wins the game!";
             }
             else if (roundWonByPlayer > roundWonByDealer)
             {

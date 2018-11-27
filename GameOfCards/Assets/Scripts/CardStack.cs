@@ -70,13 +70,17 @@ public class CardStack : MonoBehaviour
             //get the value of the deck when you add 1
             int cardRank = (card % 13);
             
-            if (cardRank < 10)
+            if (cardRank < 9)
             {
                 cardRank += 1;
             }
-            else if ( cardRank >= 10)
+            else if (cardRank == 9)
             {
-                cardRank = 11;
+                cardRank = 0;
+            }
+            else if (cardRank >= 10)
+            {
+                cardRank = 10;
             }
             sum = sum + cardRank;
         }
@@ -130,7 +134,7 @@ public class CardStack : MonoBehaviour
     public int ChanceHandValue()
     {
         int sum = ChanceSumValue();
-        if (sum < 33)
+        if (sum < 30)
         {
             sum = sum % 10;
         }
