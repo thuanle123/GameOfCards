@@ -102,7 +102,7 @@ public class ChanceUnitTest {
         return deck;
     }
 
-    /*
+    
 
     private Chance GetChanceMock()
     {
@@ -122,6 +122,6 @@ public class ChanceUnitTest {
         }
     }
 
-    */
+    
 
 }
