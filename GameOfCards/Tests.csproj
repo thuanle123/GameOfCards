@@ -65,6 +65,7 @@
     <Compile Include="Assets\Tests\CardStackFunctions.cs" />
     <Compile Include="Assets\Tests\ChanceUnitTest.cs" />
     <Compile Include="Assets\Tests\DeckUnitTest.cs" />
+    <Compile Include="Assets\Tests\MultiplayerTest.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
