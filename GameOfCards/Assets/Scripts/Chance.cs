@@ -185,9 +185,9 @@ public class Chance : MonoBehaviour
                 dealer.Draw();
             }
         }
-        // If the deck has less than 4 cards, then we have reached 
+        // If the deck has less than or equal to 6 cards, then we have reached 
         // the end of the game, so we dont draw.
-        if (deck.CardCount > 4)
+        if (deck.CardCount >= 6)
         {
 
             // Draw hands.
