@@ -156,8 +156,9 @@ public class Chance : MonoBehaviour
     }
 
     // Should change name to StartRound()?
-    void StartGame()
+    public void StartGame()
     {
+        deck.Shuffle();
         endTurnButton.interactable = true;
         swapCardButton.interactable = true;
         nextRoundButton.interactable = false;

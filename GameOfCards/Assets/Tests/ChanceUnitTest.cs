@@ -11,86 +11,50 @@ public class ChanceUnitTest {
 
     [Test]
     public void test_a_chance_setup_created()//Checks that players have the same amount of cards in there hand. 
-    { 
-        
+    {
+        var chance = GetChanceMock();
+        Assert.That(chance.player.CardCount, Is.EqualTo(3));
+        Assert.That(chance.dealer.CardCount, Is.EqualTo(3));
+    }
+
+    [Test]
+    public void test_b_chance_swap()//Checks to see if the swap function in chance is working correctly
+    {
+        var chance = GetChanceMock();
+        int sumBeforeSwap = chance.player.ChanceSumValue() + chance.dealer.ChanceSumValue();
+
+        chance.swapCard();
+
+        Assert.That(chance.player.ChanceSumValue() + chance.dealer.ChanceSumValue(), Is.EqualTo(sumBeforeSwap));
+    }
+
+    [Test]
+    public void test_c_player_hand_loses() //Make sure the card value are being properly added together.
+    {
         var player = CardStackFunctions.GetCardStackMock();
-        var opponent = CardStackFunctions.GetCardStackMock();
-        CardStackFunctions.FillWithCards(player, 3);
-        CardStackFunctions.FillWithCards(opponent, 3);
-        Assert.That(player.CardCount, Is.EqualTo(3));
-        Assert.That(opponent.CardCount, Is.EqualTo(3));
+        var dealer = CardStackFunctions.GetCardStackMock();
 
+        //Player has a score of 3
+        player.push(0);
+        player.push(13);
+        player.push(26);
+
+        //Dealer has all face cards
+        dealer.push(10);
+        dealer.push(11);
+        dealer.push(12);
+
+        Assert.That(player.ChanceSumValue(), Is.LessThan(dealer.ChanceSumValue())); // Assert  that player will lose
+        Assert.That(player.ChanceHandValue(), Is.LessThan(dealer.ChanceHandValue()));
     }
-    
-    [Test]
-    public void test_b_chance_cards_added()//Checks to see if cards in chance are added to the hand properly
-    {
-        
-        var chanceGame = GetChanceMock();
-        var dealer = chanceGame.dealer;
-        FillWithCards(dealer, 3);
-        Assert.That(dealer.CardCount, Is.EqualTo(3));
-    }
-
-    [Test]
-    public void test_c_chance_cards_have_value()//Checks to see if the card holds a value
-    {
-        var chanceGame = GetChanceMock();
-        var dealer = chanceGame.dealer;
-        System.Random r = new System.Random();
-        var card = r.Next(0, 52); //picks a random card out of the deck 
-        dealer.push(card);
-        Assert.That(dealer.Draw, Is.GreaterThan(0));
-
-    }
-
-    [Test]
-    public void test_d_chance_swap()//Checks to see if the swap function in chance is working correctly
-    {
-        var chanceGame = GetChanceMock();
-        //chanceGame.StartGame();
-        System.Random r = new System.Random();
-        var dealer = chanceGame.dealer;
-        var player = chanceGame.player;
-        var playerCard = r.Next(0,52); //picks a random card out of the deck
-        var dealerCard = r.Next(0,52); //picks a random card out of the deck
-        dealer.push(dealerCard);
-        player.push(playerCard);
-        var unswappedDealer = dealer; //Hold the value of dealer for comparison
-        chanceGame.swapCard();
-        Assert.That(player, Is.EqualTo(unswappedDealer));
-        
-    }
-
-    [Test]
-    public void test_e_chance_cards_value_added() //Make sure the card value are being properly added together.
-    {
-        System.Random r = new System.Random();
-        var chanceGame = GetChanceMock();
-        var dealer = chanceGame.dealer;
-        var cardOne = r.Next(0, 52);
-        var cardTwo = r.Next(0, 52);
-        var value = cardOne + cardTwo; //Adds cards together
-        dealer.push(value);
-        Assert.That(value, Is.EqualTo(cardOne + cardTwo)); //compare to see if card are being pushed and added properly
-    }
-   
-
-    private CardStack GetCardStackMock()
-    {
-        var deck = Substitute.For<CardStack>();
-        deck.isGameDeck = true;
-        deck.cards = new List<int>();   // Initialize fake List to simulate putting in and drawing cards
-        return deck;
-    }
-
-
+  
     private Chance GetChanceMock()
     {
         var chance = Substitute.For<Chance>();
-        chance.player = GetCardStackMock();
-        chance.dealer = GetCardStackMock();
-        
+        chance.player = CardStackFunctions.GetCardStackMock();
+        chance.dealer = CardStackFunctions.GetCardStackMock();
+        chance.deck = CardStackFunctions.GetCardStackMock();
+
         chance.playAgainButton = Substitute.For<Button>();
         chance.winnerText =Substitute.For<Text>();
         chance.playerScore =Substitute.For<Text>();
@@ -101,16 +65,8 @@ public class ChanceUnitTest {
         chance.swapCardButton = Substitute.For<Button>();
         chance.nextRoundButton = Substitute.For<Button>();
 
+        chance.StartGame();
+
         return chance;
     }
-
-    private void  FillWithCards(CardStack c,  int numCards)
-    {
-        for (var i= 0  ; i < numCards; i++)
-        {
-            c.push(i);
-        }
-    }
-    
-
 }
