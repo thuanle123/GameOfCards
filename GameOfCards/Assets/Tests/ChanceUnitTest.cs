@@ -13,17 +13,17 @@ public class ChanceUnitTest {
     public void test_a_chance_setup_created()//Checks that players have the same amount of cards in there hand. 
     { 
         
-        var player = GetCardStackMock();
-        var opponent = GetCardStackMock();
-        FillWithCards(player, 3);
-        FillWithCards(opponent, 3);
+        var player = CardStackFunctions.GetCardStackMock();
+        var opponent = CardStackFunctions.GetCardStackMock();
+        CardStackFunctions.FillWithCards(player, 3);
+        CardStackFunctions.FillWithCards(opponent, 3);
         Assert.That(player.CardCount, Is.EqualTo(3));
         Assert.That(opponent.CardCount, Is.EqualTo(3));
 
     }
     
     [Test]
-    public void test_b_chance_cards_added()//Checks to see if cards in chance are added to the hand
+    public void test_b_chance_cards_added()//Checks to see if cards in chance are added to the hand properly
     {
         
         var chanceGame = GetChanceMock();
@@ -74,7 +74,7 @@ public class ChanceUnitTest {
         dealer.push(value);
         Assert.That(value, Is.EqualTo(cardOne + cardTwo)); //compare to see if card are being pushed and added properly
     }
-    
+   
 
     private CardStack GetCardStackMock()
     {
@@ -84,7 +84,6 @@ public class ChanceUnitTest {
         return deck;
     }
 
-    
 
     private Chance GetChanceMock()
     {
@@ -105,7 +104,6 @@ public class ChanceUnitTest {
         return chance;
     }
 
-
     private void  FillWithCards(CardStack c,  int numCards)
     {
         for (var i= 0  ; i < numCards; i++)
@@ -113,7 +111,6 @@ public class ChanceUnitTest {
             c.push(i);
         }
     }
-
     
 
 }
