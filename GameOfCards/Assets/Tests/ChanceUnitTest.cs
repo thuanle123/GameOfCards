@@ -6,23 +6,8 @@ using System.Collections;
 using NSubstitute;
 using System.Collections.Generic;
 using System;
-// READ THIS!!!
-// When you check for the sum
-// Any Face Cards * 3 (Jack + Jack + Queen, King + Queen + Queen, etc..)
-// If value = 30, it is correct
-// If the value is less than 30, you take the (sum mod 10) of it
-// which mean 10, Queen, Jack, King can be treat as a 0 if you don't have all three
-// I made the value of King,Queen,Jack value of 11 because
-// I couldn't distuingish between 10 and those 3
-// but all i have to do is make 10 = 0 then everything solve
 
-<<<<<<< HEAD
 public class ChanceUnitTest {
-=======
-// to recap, if a player/dealer have 3 face cards, sum = 30
-// otherwise sum mod 10
-public class Chance {
->>>>>>> master
 
     [Test]
     public void test_a_chance_setup_created()//Checks that players have the same amount of cards in there hand. 
@@ -37,9 +22,9 @@ public class Chance {
     {
         var chance = GetChanceMock();
         int sumBeforeSwap = chance.player.ChanceSumValue() + chance.dealer.ChanceSumValue();
+    
 
-        chance.swapCard();
-
+        chance.SwapCard();
         Assert.That(chance.player.ChanceSumValue() + chance.dealer.ChanceSumValue(), Is.EqualTo(sumBeforeSwap));
     }
 
@@ -110,7 +95,6 @@ public class Chance {
         chance.player = CardStackFunctions.GetCardStackMock();
         chance.dealer = CardStackFunctions.GetCardStackMock();
         chance.deck = CardStackFunctions.GetCardStackMock();
-
         chance.playAgainButton = Substitute.For<Button>();
         chance.winnerText =Substitute.For<Text>();
         chance.playerScore =Substitute.For<Text>();
