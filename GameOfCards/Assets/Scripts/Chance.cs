@@ -11,18 +11,18 @@ public class Chance : MonoBehaviour
     public CardStack dealer;
     public CardStack player;
     public CardStack deck;
+
     // Create these buttons in Chance scene
     public Button playAgainButton;
+    public Button endTurnButton;
+    public Button swapCardButton;
+    public Button nextRoundButton;
+
     public Text winnerText;
     public Text playerScore;
     public Text dealerScore;
     public Text playerHandScore;
     public Text dealerHandScore;
-
-
-    public Button endTurnButton;
-    public Button swapCardButton;
-    public Button nextRoundButton;
 
     int roundWonByPlayer = 0;
     int roundWonByDealer = 0;
@@ -55,7 +55,7 @@ public class Chance : MonoBehaviour
 
     // TODO: Do we want hand scores to be visible throughout round?
 
-    // TODO: Convert "Back" button from onGUI() to a public method like the rest of our buttons?
+    // TODO: Convert "Back" button from onGUI() to a public method like the rest of our buttons? Done
 
     // Function for player to swap a random card with dealer.
     public void SwapCard()
@@ -111,7 +111,7 @@ public class Chance : MonoBehaviour
         // Grey out buttons.
         endTurnButton.interactable = false;
         swapCardButton.interactable = false;
-        // Update Hand Scores (do we want these to be visible?)
+        // Show the player and dealer hands
         playerHandScore.text = player.ChanceHandValue().ToString();
         dealerHandScore.text = dealer.ChanceHandValue().ToString();
         
@@ -145,6 +145,8 @@ public class Chance : MonoBehaviour
     {
         deck.Shuffle();
         winnerText.text = "";
+        // Without this line the score won't reset
+        roundWonByPlayer = roundWonByDealer = 0;
         Start();
         FindObjectOfType<AudioManager>().Play("cardShuffle");
     }
@@ -183,7 +185,7 @@ public class Chance : MonoBehaviour
                 dealer.Draw();
             }
         }
-        // If the deck has less than 6 cards, then we have reached 
+        // If the deck has less than or equal to 6 cards, then we have reached 
         // the end of the game, so we dont draw.
         if (deck.CardCount >= 6)
         {
@@ -196,14 +198,11 @@ public class Chance : MonoBehaviour
             }
             // Update hand scores.
             playerHandScore.text = player.ChanceHandValue().ToString();
-            //dealerHandScore.text = dealer.ChanceHandValue().ToString();
             dealerHandScore.text = "";
         }
         else
         {
-
             // End game. 
-
             if (roundWonByDealer > roundWonByPlayer)
             {
                 winnerText.text = "Dealer wins the game!";
@@ -222,21 +221,5 @@ public class Chance : MonoBehaviour
             nextRoundButton.interactable = false;
             endTurnButton.interactable = false;
         }
-        /*
-        // Debugging.
-        if (player.cards.Count == 3 && dealer.cards.Count == 3)
-        { 
-            Debug.Log("player hand =");
-            for (int i = 0; i < 3; i++)
-            {
-                Debug.Log(player.cards[i]);
-            }
-
-            Debug.Log("dealer hand =");
-            for (int i = 0; i < 3; i++)
-            {
-                Debug.Log(dealer.cards[i]);
-            }
-        }*/
     }
 }
