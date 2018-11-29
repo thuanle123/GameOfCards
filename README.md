@@ -6,11 +6,11 @@ A collection of cards games made on Unity 2D.
 
 - Thuan Le (Product Owner)
 
-- Art Parkeenvincha
+- Art Parkeenvincha (Fourth Scrum Master)
 
 - Kalyn Williams
 
-- Kyle Lee (Third Scrum Master)
+- Kyle Lee
 
 ### Presentation
 
@@ -36,6 +36,12 @@ A collection of cards games made on Unity 2D.
  ### Sprint #3
  - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-3-%F0%9F%9A%80-05-11-18-18-11-18)
  - Sprint #3 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%203.pdf)
+ - Sprint #3 Report [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20%233%20Report.pdf)
+
+  ### Sprint #4
+ - Scrum Board [Trello]()
+ - Sprint #4 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%234%20(1).pdf)
+ - Sprint #4 Report [PDF]()
  
 ### Technologies
 
@@ -57,5 +63,5 @@ A collection of cards games made on Unity 2D.
  - [Kenny Sounds Affect](https://kenney.nl/assets/casino-audio)
  - [Unity Scripting](https://unity3d.com/learn/tutorials/s/scripting), [UI](https://unity3d.com/learn/tutorials/s/user-interface-ui), [2D Games](https://unity3d.com/learn/tutorials/s/2d-game-creation), [Audio](https://unity3d.com/learn/tutorials/s/audio)
  - [Multiplayer](https://unity3d.com/learn/tutorials/s/multiplayer-networking)
- - [Unity Coding Guidelines](http://wiki.unity3d.com/index.php/Csharp_Coding_Guidelines)
+ - [Unity Coding Guidelines](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Unity%20Coding%20Guidelines.pdf)
 

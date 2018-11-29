@@ -1,4 +1,5 @@
-﻿using System;
+﻿//This to set the Event to remove the card index
+using System;
 
 public class CardRemoved : EventArgs
 {

@@ -70,23 +70,71 @@ public class CardStack : MonoBehaviour
             //get the value of the deck when you add 1
             int cardRank = (card % 13);
             
-            if (cardRank < 10)
+            if (cardRank < 9)
             {
                 cardRank += 1;
             }
-            else if ( cardRank >= 10)
+            else if (cardRank == 9)
             {
-                cardRank = 11;
+                cardRank = 0;
+            }
+            else if (cardRank >= 10)
+            {
+                cardRank = 10;
             }
             sum = sum + cardRank;
         }
+        return sum;
+    }
+
+    // same as ChanceSumValue() but face cards are worth 10.
+    public int BlackjackSumValue()
+    {
+        int sum = 0;
+        int aces = 0;
+        foreach (int card in GetCards())
+        {
+            // give the remainder
+            // 0         Ace
+            // 1         2
+            // 2         3
+            //get the value of the deck when you add 1
+            int cardRank = (card % 13);
+
+            if (cardRank == 0)
+            {
+                aces++;
+            }
+            else if (cardRank < 10)
+            {
+                cardRank += 1;
+                sum = sum + cardRank;
+            }
+            else if (cardRank >= 10)
+            {
+                cardRank = 10;
+                sum = sum + cardRank;
+            }  
+        }
+        for (int i = 0; i < aces; i++)
+        {
+            if (sum + 11 <= 21)
+            {
+                sum = sum + 11;
+            }
+            else
+            {
+                sum = sum + 1;
+            }
+        }
+        Debug.Log("sum = " + sum);
         return sum;
     }
     
     public int ChanceHandValue()
     {
         int sum = ChanceSumValue();
-        if (sum < 33)
+        if (sum < 30)
         {
             sum = sum % 10;
         }
