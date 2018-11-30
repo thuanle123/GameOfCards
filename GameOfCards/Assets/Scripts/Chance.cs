@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
+//Game Breaking bug after merging to master this morning
+// Basically, the game enters an infinite loop
 public class Chance : MonoBehaviour
 {
     
