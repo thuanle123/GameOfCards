@@ -60,13 +60,14 @@ public class Chance : MonoBehaviour
     // TODO: Convert "Back" button from onGUI() to a public method like the rest of our buttons? Done
 
     // Function for player to swap a random card with dealer.
+    // It swaps a random
     public void SwapCard()
     {
         // Pick random cards from both hands to be swapped.
         int randomPlayer = Random.Range(0, 3);
         int randomDealer = Random.Range(0, 3);
-        Debug.Log("randomP number = " + randomPlayer);
-        Debug.Log("randomD number = " + randomDealer);
+        //Debug.Log("randomP number = " + randomPlayer);
+        //Debug.Log("randomD number = " + randomDealer);
 
         // Swap cards.
         if (dealer.ChanceHandValue() <= 5)
@@ -85,22 +86,7 @@ public class Chance : MonoBehaviour
         //dealerHandScore.text = dealer.ChanceHandValue().ToString();
         dealerHandScore.text = "";
         FindObjectOfType<AudioManager>().Play("cardSlide6");
-        /*
-        // Debugging
-        if (player.cards.Count == 3 && dealer.cards.Count == 3)
-        { 
-            Debug.Log("player hand =");
-            for (int i = 0; i < 3; i++)
-            {
-                Debug.Log(player.cards[i]);
-            }
-
-            Debug.Log("dealer hand =");
-            for (int i = 0; i < 3; i++)
-            {
-                Debug.Log(dealer.cards[i]);
-            }
-        }*/
+        
 
         // Grey out Swap Card button
         swapCardButton.interactable = false;
@@ -171,7 +157,6 @@ public class Chance : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
-    // Should change name to StartRound()?
     void StartGame()
     {
         endTurnButton.interactable = true;

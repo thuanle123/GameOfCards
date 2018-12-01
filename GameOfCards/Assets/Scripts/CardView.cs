@@ -83,8 +83,8 @@ public class CardView : MonoBehaviour
 
         spriteRenderer.sortingOrder = 51 - positionalIndex;
         fetchedCards.Add(cardIndex, cardCopy); // The line that actually displays the card
-        Debug.Log("Hand Value = " + deck.ChanceHandValue());
-        //Debug.Log("Test Value = " + deck.BlackjackSumValue());
+        //Debug.Log("Hand Value = " + deck.ChanceHandValue());
+        Debug.Log("Test Value = " + deck.BlackjackSumValue());
     }
 
 }

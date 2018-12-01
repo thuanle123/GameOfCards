@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Blackjack : MonoBehaviour {
+public class Blackjack : MonoBehaviour
+{
 
     // Variables
     public CardStack dealer;
@@ -56,13 +57,15 @@ public class Blackjack : MonoBehaviour {
      */
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         StartGame();
         FindObjectOfType<AudioManager>().Play("cardShuffle");
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
@@ -148,12 +151,6 @@ public class Blackjack : MonoBehaviour {
 
     IEnumerator DealersTurn()
     {
-
-        //CardStackView view = dealer.GetComponent<CardStackView>();
-        //view.toggle(dealersfirstcard, true);
-        //view.ShowCards();
-        //yield return new WaitForSeconds(1f);
-
         while (dealer.BlackjackSumValue() < 17)
         {
             dealerHit();

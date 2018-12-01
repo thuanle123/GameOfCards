@@ -2783,14 +2783,14 @@ MonoBehaviour:
   player: {fileID: 501503418}
   deck: {fileID: 898372448}
   playAgainButton: {fileID: 1178932321}
+  endTurnButton: {fileID: 1433666076}
+  swapCardButton: {fileID: 127594173}
+  nextRoundButton: {fileID: 359123229}
   winnerText: {fileID: 350901653}
   playerScore: {fileID: 1636402444}
   dealerScore: {fileID: 1649558293}
   playerHandScore: {fileID: 42003534}
   dealerHandScore: {fileID: 760568614}
-  endTurnButton: {fileID: 1433666076}
-  swapCardButton: {fileID: 127594173}
-  nextRoundButton: {fileID: 359123229}
 --- !u!4 &1947723080
 Transform:
   m_ObjectHideFlags: 0

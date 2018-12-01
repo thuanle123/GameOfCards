@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CardStack : MonoBehaviour
 {
-    // this list is private
+    // Public list to access it for other function
+    // RemovedEventHandler is a delegate, a reference pointer to a method
+    // It serves as a intermediate scripting, in this case to remove the card
     public List<int> cards;
-
     public bool isGameDeck;
-    public event RemovedEventHandler CardRemoved; //delegate
+    public event RemovedEventHandler CardRemoved;
 
-    public bool HasCards{ get { return cards != null && cards.Count > 0; } }
-
-    // need a public method to numerate through them all
-    // need to use yield
+    // GetCards starts a coroutine
+    // The yield statement is there so that it can be paused at any moment
+    // We need a public method to numerate through them all
     public IEnumerable<int> GetCards()
     {
         foreach (int i in cards)
@@ -22,29 +22,35 @@ public class CardStack : MonoBehaviour
         }
     }
 
-    //Get card count from card stack
+    public bool HasCards
+    {
+        get
+        {
+            return cards.Count > 0 && cards != null;
+        }
+    }
+
+    //Get card count from the list
     public int CardCount
     {
         get
         {
-            if (cards != null)
-            {
-                return cards.Count;
-            }
-            else
+            if (cards == null)
             {
                 return 0;
             }
+            return cards.Count;
         }
     }
 
-    //This is your Card Draw method(), i just move it up here
+    // Draw method draws the card to the player and dealer
+    // It also remove the card from the List
     public int Draw()
     {
         int temp = cards[0];
         cards.RemoveAt(0);
 
-        //to remove card from the stack
+        //to remove card from the list
         if (CardRemoved != null)
         {
             CardRemoved(this, new CardRemoved(temp));
@@ -58,18 +64,21 @@ public class CardStack : MonoBehaviour
     }
 
     //calculate the hand value
+    // The value for 10 needs to be 0
+    // Otherwise it won't distuingish between a 10 and face cards
+    // 10 + Jack + Queen = 0, lowest hand
+    // Any 3 three cards = 30, highest hand
     public int ChanceSumValue()
     {
+        // give the remainder
+        // 0         Ace
+        // 1         2
+        // 2         3
+        //get the value of the deck when you add 1
         int sum = 0;
         foreach(int card in GetCards())
         {
-            // give the remainder
-            // 0         Ace
-            // 1         2
-            // 2         3
-            //get the value of the deck when you add 1
             int cardRank = (card % 13);
-            
             if (cardRank < 9)
             {
                 cardRank += 1;
@@ -87,20 +96,36 @@ public class CardStack : MonoBehaviour
         return sum;
     }
 
-    // same as ChanceSumValue() but face cards are worth 10.
+    // Problem before: the value always calculate on each card drawn
+    // We want to calculate the sum after 3 cards have been drawn
+    // ChanceHandValue fixes that problem
+    // If the hand does not contain 3 face cards (sum of 30)
+    // the sum will be sum mod 10
+    public int ChanceHandValue()
+    {
+        int sum = ChanceSumValue();
+        if (sum < 30)
+        {
+            sum = sum % 10;
+        }
+        return sum;
+    }
+
+    // Similar to ChanceHandValue
+    // Except Ace can be worth 1 or 11 points
     public int BlackjackSumValue()
     {
+        // give the remainder
+        // 0         Ace
+        // 1         2
+        // 2         3
+        //get the value of the deck when you add 1
         int sum = 0;
         int aces = 0;
+        int i = 0;
         foreach (int card in GetCards())
         {
-            // give the remainder
-            // 0         Ace
-            // 1         2
-            // 2         3
-            //get the value of the deck when you add 1
             int cardRank = (card % 13);
-
             if (cardRank == 0)
             {
                 aces++;
@@ -116,37 +141,27 @@ public class CardStack : MonoBehaviour
                 sum = sum + cardRank;
             }  
         }
-        for (int i = 0; i < aces; i++)
+        while (i < aces)
         {
             if (sum + 11 <= 21)
             {
-                sum = sum + 11;
+                sum += 11;
             }
             else
             {
-                sum = sum + 1;
+                sum += 1;
             }
-        }
-        Debug.Log("sum = " + sum);
-        return sum;
-    }
-    
-    public int ChanceHandValue()
-    {
-        int sum = ChanceSumValue();
-        if (sum < 30)
-        {
-            sum = sum % 10;
+            i++;
         }
         return sum;
     }
 
+    // Unshuffle card deck, go from 0 to 51
+    // Shuffling implemented with a technique called the Fisher-Yates shuffle.
+    // The deck will be shuffle 5 times
     public void Shuffle()
     {
         cards.Clear();
-
-        // Unshuffle card deck, go from 0 to 51
-        // Shuffling implemented with a technique called the Fisher-Yates shuffle.
         for (int i = 0; i < 52; i++)
         {
             cards.Add(i);
@@ -164,6 +179,7 @@ public class CardStack : MonoBehaviour
         }
     }
 
+    // Clear function clear the List of cards
     public void Clear()
     {
         cards.Clear();
