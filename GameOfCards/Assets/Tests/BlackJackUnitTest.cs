@@ -9,6 +9,13 @@ using System;
 
 public class BlackJackUnitTest  
 {
+    [Test]
+    public void blackjack_a_setup_created()
+    {
+        var blackJack = GetBlackJackMock();
+        Assert.That(blackJack.dealer.CardCount, Is.GreaterThan(0));
+        Assert.That(blackJack.player.CardCount, Is.GreaterThan(0));
+    }
 
    private Blackjack GetBlackJackMock() //Simulates BlackJack
    {
