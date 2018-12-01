@@ -154,7 +154,7 @@ public class Blackjack : MonoBehaviour {
         //view.ShowCards();
         //yield return new WaitForSeconds(1f);
 
-        while (dealer.BlackjackSumValue() < 17)
+        while (dealer.BlackjackSumValue() < 17 && player.BlackjackSumValue() <= 21)
         {
             dealerHit();
             yield return new WaitForSeconds(1f);
@@ -162,7 +162,7 @@ public class Blackjack : MonoBehaviour {
 
         dealerHandScore.text = dealer.BlackjackSumValue().ToString();
 
-        if(player.BlackjackSumValue() > 21 || (dealer.BlackjackSumValue() >= player.BlackjackSumValue() && dealer.BlackjackSumValue() <= 21))
+        if(player.BlackjackSumValue() > 21 || (dealer.BlackjackSumValue() > player.BlackjackSumValue() && dealer.BlackjackSumValue() <= 21))
         {
             winnerText.text = "You lose.";
             roundsWonDealer++;

@@ -127,7 +127,6 @@ public class CardStack : MonoBehaviour
                 sum = sum + 1;
             }
         }
-        Debug.Log("sum = " + sum);
         return sum;
     }
     
@@ -162,6 +161,8 @@ public class CardStack : MonoBehaviour
                 cards[j] = temp;
             }
         }
+
+        Debug.Log("Number of Cards = " + CardCount);
     }
 
     public void Clear()

@@ -41,8 +41,6 @@ public class Chance : MonoBehaviour
 
     #region Public Methods
 
-    // TODO: Fix bug where face down cards are offset.
-
     // TODO: Reveal dealer hand at end of the round
     // Solution should be in blackjack tutorial.
 
@@ -58,8 +56,13 @@ public class Chance : MonoBehaviour
     // TODO: Convert "Back" button from onGUI() to a public method like the rest of our buttons? Done
 
     // Function for player to swap a random card with dealer.
+
+    // Make swap card button disabled after dealer refuses to swap.
     public void SwapCard()
     {
+        // Grey out Swap Card button
+        swapCardButton.interactable = false;
+
         // Pick random cards from both hands to be swapped.
         int randomPlayer = Random.Range(0, 3);
         int randomDealer = Random.Range(0, 3);
@@ -67,41 +70,23 @@ public class Chance : MonoBehaviour
         Debug.Log("randomD number = " + randomDealer);
 
         // Swap cards.
-        if (dealer.ChanceHandValue() <= 5)
-        {
             int tempCard = player.cards[randomPlayer];
             player.cards[randomPlayer] = dealer.cards[randomDealer];
             dealer.cards[randomDealer] = tempCard;
-        }
-        else
-        {
-            winnerText.text = "Dealer refuses to swap with you";
-        }
 
         // Update hand score.
-        playerHandScore.text = player.ChanceHandValue().ToString();
-        //dealerHandScore.text = dealer.ChanceHandValue().ToString();
+        if (player.ChanceHandValue() == 30)
+        {
+            playerHandScore.text = "CHANCE";             
+        }
+        else 
+        {
+            playerHandScore.text = player.ChanceHandValue().ToString();
+        }
+
         dealerHandScore.text = "";
         FindObjectOfType<AudioManager>().Play("cardSlide6");
-        /*
-        // Debugging
-        if (player.cards.Count == 3 && dealer.cards.Count == 3)
-        { 
-            Debug.Log("player hand =");
-            for (int i = 0; i < 3; i++)
-            {
-                Debug.Log(player.cards[i]);
-            }
 
-            Debug.Log("dealer hand =");
-            for (int i = 0; i < 3; i++)
-            {
-                Debug.Log(dealer.cards[i]);
-            }
-        }*/
-
-        // Grey out Swap Card button
-        swapCardButton.interactable = false;
     }
 
     // Function to end your turn for the round.
@@ -112,8 +97,20 @@ public class Chance : MonoBehaviour
         endTurnButton.interactable = false;
         swapCardButton.interactable = false;
         // Show the player and dealer hands
-        playerHandScore.text = player.ChanceHandValue().ToString();
-        dealerHandScore.text = dealer.ChanceHandValue().ToString();
+        if (player.ChanceHandValue() == 30)             
+        {                 
+            playerHandScore.text = "CHANCE";             
+        } else
+        {
+            playerHandScore.text = player.ChanceHandValue().ToString();
+        }
+        if (dealer.ChanceHandValue() == 30)             
+        {                 
+            dealerHandScore.text = "CHANCE";             
+        } else
+        {
+            dealerHandScore.text = dealer.ChanceHandValue().ToString();
+        }      
         
         // Compare hand values, update score/text.
         if (dealer.ChanceHandValue() > player.ChanceHandValue())
@@ -172,19 +169,17 @@ public class Chance : MonoBehaviour
     // Should change name to StartRound()?
     public void StartGame()
     {
-        deck.Shuffle();
         endTurnButton.interactable = true;
         swapCardButton.interactable = true;
         nextRoundButton.interactable = false;
 
-        // Empty the hands.
-        if (player.HasCards && dealer.HasCards)
+        while(player.HasCards)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                player.Draw();
-                dealer.Draw();
-            }
+            player.Draw();
+        }
+        while (dealer.HasCards)
+        {
+            dealer.Draw();
         }
         // If the deck has less than or equal to 6 cards, then we have reached 
         // the end of the game, so we dont draw.
@@ -198,7 +193,13 @@ public class Chance : MonoBehaviour
                 dealer.push(deck.Draw());
             }
             // Update hand scores.
-            playerHandScore.text = player.ChanceHandValue().ToString();
+            if (player.ChanceHandValue() == 30)
+            {
+                playerHandScore.text = "CHANCE";
+            } else
+            {
+                playerHandScore.text = player.ChanceHandValue().ToString();
+            }
             dealerHandScore.text = "";
         }
         else

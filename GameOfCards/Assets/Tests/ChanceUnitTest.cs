@@ -16,13 +16,7 @@ using System;
 // I couldn't distuingish between 10 and those 3
 // but all i have to do is make 10 = 0 then everything solve
 
-<<<<<<< HEAD
 public class ChanceUnitTest {
-=======
-// to recap, if a player/dealer have 3 face cards, sum = 30
-// otherwise sum mod 10
-public class Chance {
->>>>>>> master
 
     [Test]
     public void test_a_chance_setup_created()//Checks that players have the same amount of cards in there hand. 
@@ -38,7 +32,7 @@ public class Chance {
         var chance = GetChanceMock();
         int sumBeforeSwap = chance.player.ChanceSumValue() + chance.dealer.ChanceSumValue();
 
-        chance.swapCard();
+        chance.SwapCard();
 
         Assert.That(chance.player.ChanceSumValue() + chance.dealer.ChanceSumValue(), Is.EqualTo(sumBeforeSwap));
     }
