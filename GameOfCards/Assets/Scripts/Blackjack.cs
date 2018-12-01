@@ -25,6 +25,8 @@ public class Blackjack : MonoBehaviour {
     public int roundsWonPlayer = 0;
     public int roundsWonDealer = 0;
 
+    public GameObject HandCover;
+
     /* Blackjack Rules:
      * The player attemps to beat the dealer by getting a count as 
      * close to 21 as possible, without going over 21.
@@ -58,7 +60,9 @@ public class Blackjack : MonoBehaviour {
 
     // update UI
     // update naming
+    // move scores above cards to avoid overlap
     void Start () {
+        //CoverHand();
         roundsWonPlayer = roundsWonDealer = 0;
         playerScore.text = roundsWonPlayer.ToString();
         dealerScore.text = roundsWonDealer.ToString();
@@ -71,7 +75,16 @@ public class Blackjack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-	}
+	} 
+
+    public void CoverHand() //Open panel function
+    {
+        if(HandCover != null)//Checks to see if there is a HandCover. 
+        {
+            if (HandCover.activeSelf) { HandCover.SetActive(false); } //If the HandCover is being displayed, close it. 
+            else { HandCover.SetActive(true); } //If the button has not been pressed, show HandCover.
+        }
+    }
 
     public void Hit()
     {
@@ -106,6 +119,8 @@ public class Blackjack : MonoBehaviour {
         hitButton.interactable = true;
         standButton.interactable = true;
 
+        CoverHand();
+
         StartGame();
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
@@ -113,7 +128,7 @@ public class Blackjack : MonoBehaviour {
     public void NewGame()
     {
         deck.Shuffle();
-
+        CoverHand();
         hitButton.interactable = true;
         standButton.interactable = true;
 
@@ -155,13 +170,15 @@ public class Blackjack : MonoBehaviour {
     IEnumerator DealersTurn()
     {
 
+        CoverHand();
+        dealerHandScore.text = dealer.BlackjackSumValue().ToString();
+        yield return new WaitForSeconds(1f);
         while (dealer.BlackjackSumValue() < 17 && player.BlackjackSumValue() <= 21)
         {
             DealerHit();
+            dealerHandScore.text = dealer.BlackjackSumValue().ToString();
             yield return new WaitForSeconds(1f);
         }
-
-        dealerHandScore.text = dealer.BlackjackSumValue().ToString();
 
         if(player.BlackjackSumValue() > 21 || (dealer.BlackjackSumValue() > player.BlackjackSumValue() && dealer.BlackjackSumValue() <= 21))
         {
@@ -178,15 +195,12 @@ public class Blackjack : MonoBehaviour {
             winnerText.text = "The house wins.";
         }
 
-        yield return new WaitForSeconds(1f);
-
         if(deck.CardCount <= 10) 
         {
             winnerText.text = "Game over!";
             playAgainButton.interactable = false;
         } else 
         {
-            yield return new WaitForSeconds(1f);
             playAgainButton.interactable = true;
         }
     }
