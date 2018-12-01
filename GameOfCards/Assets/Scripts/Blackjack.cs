@@ -56,7 +56,15 @@ public class Blackjack : MonoBehaviour {
      */
 
     // Use this for initialization
+
+    // update UI
+    // update naming
     void Start () {
+        roundsWonPlayer = roundsWonDealer = 0;
+        playerScore.text = roundsWonPlayer.ToString();
+        dealerScore.text = roundsWonDealer.ToString();
+        winnerText.text = "";
+
         StartGame();
         FindObjectOfType<AudioManager>().Play("cardShuffle");
     }
@@ -104,6 +112,16 @@ public class Blackjack : MonoBehaviour {
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
+    public void NewGame()
+    {
+        deck.Shuffle();
+
+        hitButton.interactable = true;
+        standButton.interactable = true;
+
+        Start();
+    }
+
     void StartGame ()
     {
         // Empty the hands.
@@ -126,6 +144,8 @@ public class Blackjack : MonoBehaviour {
         winnerText.text = "";
         dealerHandScore.text = "";
         playerHandScore.text = player.BlackjackSumValue().ToString();
+
+        nextRoundButton.interactable = false;
     }
 
     void dealerHit ()
@@ -178,6 +198,15 @@ public class Blackjack : MonoBehaviour {
         }
 
         yield return new WaitForSeconds(1f);
-        playAgainButton.interactable = true;
+
+        if(deck.CardCount <= 10) 
+        {
+            winnerText.text = "Game over!";
+            playAgainButton.interactable = false;
+        } else 
+        {
+            yield return new WaitForSeconds(1f);
+            playAgainButton.interactable = true;
+        }
     }
 }
