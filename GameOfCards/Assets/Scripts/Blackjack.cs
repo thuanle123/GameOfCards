@@ -22,7 +22,6 @@ public class Blackjack : MonoBehaviour {
     public Button playAgainButton;
     public Button standButton;
 
-    public int dealersFirstCard = -1;
     public int roundsWonPlayer = 0;
     public int roundsWonDealer = 0;
 
@@ -95,7 +94,6 @@ public class Blackjack : MonoBehaviour {
         hitButton.interactable = false;
         standButton.interactable = false;
 
-
         StartCoroutine(DealersTurn());
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
@@ -103,7 +101,7 @@ public class Blackjack : MonoBehaviour {
     public void PlayAgain()
     {
         playAgainButton.interactable = false;
-        dealersFirstCard = -1;
+
 
         hitButton.interactable = true;
         standButton.interactable = true;
@@ -148,35 +146,18 @@ public class Blackjack : MonoBehaviour {
         nextRoundButton.interactable = false;
     }
 
-    void dealerHit ()
+    void DealerHit ()
     {
-        // Draw card -> check for bust?
         int card = deck.Draw();
-
-        if (dealersFirstCard < 0)
-        {
-            dealersFirstCard = card;
-        }
-
         dealer.push(card);
-        if (dealer.CardCount >= 2)
-        {
-            //CardStackView view = dealer.GetComponent<CardStackView>();
-            //view.toggle(card, true);
-        }
     }
 
     IEnumerator DealersTurn()
     {
 
-        //CardStackView view = dealer.GetComponent<CardStackView>();
-        //view.toggle(dealersfirstcard, true);
-        //view.ShowCards();
-        //yield return new WaitForSeconds(1f);
-
         while (dealer.BlackjackSumValue() < 17 && player.BlackjackSumValue() <= 21)
         {
-            dealerHit();
+            DealerHit();
             yield return new WaitForSeconds(1f);
         }
 

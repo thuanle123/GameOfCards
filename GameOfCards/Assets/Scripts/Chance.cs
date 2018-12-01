@@ -27,6 +27,7 @@ public class Chance : MonoBehaviour
     int roundWonByPlayer = 0;
     int roundWonByDealer = 0;
 
+    // Make PNG to cover up hands.
 
     /*
      * 3 Cards dealt to each player
