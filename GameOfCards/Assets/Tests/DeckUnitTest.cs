@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using UnityEngine.TestTools;
 
 /*  ================= Unit test for CardStack.cs =================
  *  -Uses NSubstitute library: https://github.com/nsubstitute/nsubstitute
@@ -14,7 +15,7 @@ public class DeckUnitTest
     public void test_a_empty_deck_created()  // Check if empty deck with 0 cards can be created
     {
         var deck = CardStackFunctions.GetCardStackMock();
-        Assert.That(deck.CardCount, Is.EqualTo(0));
+        Assert.AreEqual(deck.CardCount, 0);
     }
 
     [Test]
