@@ -1,55 +1,43 @@
-﻿using UnityEngine;
+﻿using UnityEngine.UI;
+using UnityEngine;
 using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
+using NSubstitute;
+using System.Collections.Generic;
+using System;
 
-public class BlackJack
-
-    
+public class BlackJackUnitTest  
 {
-    /*
-
     [Test]
-    public void test_a_blackjack_setup_created()//Checks that players have the same amount of cards in there hand. 
-    {
-
-        var player = GetCardStackMock();
-        var opponent = GetCardStackMock();
-        FillWithCards(player, 2);
-        FillWithCards(opponent, 2);
-        Assert.That(player.CardCount, Is.EqualTo(3));
-        Assert.That(opponent.CardCount, Is.EqualTo(3));
-
-    }
-
-    [Test]
-    public void test_b_blackjack_21_is_winner()//Checks to see that 21 will always be the highest score.
-    {
-
-    }
-    /*
-    [Test]
-    public void test_c_blackjack_cards_counted()//Checks to see that cards are counted in when hitting. 
+    public void blackjack_a_setup_created()
     {
         var blackJack = GetBlackJackMock();
-        var player =GetCardStackMock();
-        FillWithCards(player, 2);
-        var hitCounter = 0; 
-
-        
-
-    
+        Assert.That(blackJack.dealer.CardCount, Is.GreaterThan(0));
+        Assert.That(blackJack.player.CardCount, Is.GreaterThan(0));
     }
 
-    */
-
-
-    /*
-   public BlackJack GetBlackJackMock()
+   private Blackjack GetBlackJackMock() //Simulates BlackJack
    {
+        var blackJack = Substitute.For<Blackjack>();
+        blackJack.dealer = CardStackFunctions.GetCardStackMock();
+        blackJack.player = CardStackFunctions.GetCardStackMock();
+        blackJack.deck = CardStackFunctions.GetCardStackMock();
 
-   }
+        blackJack.winnerText = Substitute.For<Text>(); 
+        blackJack.playerScore = Substitute.For<Text>(); 
+        blackJack.dealerScore = Substitute.For<Text>(); 
+        blackJack.playerHandScore = Substitute.For<Text>(); 
+        blackJack.dealerHandScore = Substitute.For<Text>();
 
-    */
+        blackJack.endTurnButton = Substitute.For<Button>();
+        blackJack.hitButton = Substitute.For<Button>();
+        blackJack.nextRoundButton = Substitute.For<Button>();
+        blackJack.playAgainButton  = Substitute.For<Button>();
+        blackJack.standButton = Substitute.For<Button>();
 
+        blackJack.StartGame();
+
+        return blackJack; 
+    }
 }

@@ -104,7 +104,7 @@ public class Blackjack : MonoBehaviour {
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
-    void StartGame ()
+   public void StartGame ()
     {
         // Empty the hands.
         while (player.HasCards)
