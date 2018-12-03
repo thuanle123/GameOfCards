@@ -30,6 +30,7 @@ public class Chance : MonoBehaviour
     public GameObject HandCover2;
     public GameObject HandCover3;
 
+    public AudioManager soundClips;
 
     int roundWonByPlayer = 0;
     int roundWonByDealer = 0;
@@ -89,7 +90,7 @@ public class Chance : MonoBehaviour
     public void SwapCard()
     {
         // Grey out Swap Card button
-        swapCardButton.interactable = false;
+        //swapCardButton.interactable = false;
 
         Debug.Log("Before Swap, player hand value = "+ player.ChanceHandValue());
         Debug.Log("Before Swap, dealer hand value = "+ dealer.ChanceHandValue());
@@ -107,11 +108,14 @@ public class Chance : MonoBehaviour
 
         // Swap cards.
             //int tempCard = player.cards[randomPlayer];
-            tempStack.InsertCard(0, player.Draw(randomPlayer));
+            //tempStack.InsertCard(0, player.Draw(randomPlayer));
+            int tempCard = player.Draw(randomPlayer);
             //player.cards.RemoveAt(randomPlayer);
             //player.cards[randomPlayer] = dealer.cards[randomPlayer];
             player.InsertCard(randomPlayer, dealer.Draw(randomDealer));
-            dealer.InsertCard(randomDealer, tempStack.Draw(0));
+            
+            //dealer.InsertCard(randomDealer, tempStack.Draw(0));
+            dealer.InsertCard(randomDealer, tempCard);
             //dealer.cards.RemoveAt(randomPlayer);
             //dealer.cards[randomPlayer] = tempCard;
 
@@ -131,7 +135,8 @@ public class Chance : MonoBehaviour
         }
 
         dealerHandScore.text = "";
-        FindObjectOfType<AudioManager>().Play("cardSlide6");
+        //FindObjectOfType<AudioManager>().Play("cardSlide6");
+        soundClips.Play("cardSlide6");
 
     }
 
@@ -195,7 +200,8 @@ public class Chance : MonoBehaviour
         roundWonByPlayer = roundWonByDealer = 0;
         CoverHand();
         Start();
-        FindObjectOfType<AudioManager>().Play("cardShuffle");
+        //FindObjectOfType<AudioManager>().Play("cardShuffle");
+        soundClips.Play("cardShuffle");
     }
 
     // Function to move on to the next round of the game.
@@ -205,25 +211,29 @@ public class Chance : MonoBehaviour
         winnerText.text = "";
         CoverHand();
         StartGame();
-        FindObjectOfType<AudioManager>().Play("cardFan1");
+        //FindObjectOfType<AudioManager>().Play("cardFan1");
+        soundClips.Play("cardFan1");
     }
 
     // Starts a new game of Chance.
-    void Start()
+    public void Start()
     {
         playerScore.text = "0";
         dealerScore.text = "0";
         StartGame();
-        FindObjectOfType<AudioManager>().Play("cardSlide6");
+        //FindObjectOfType<AudioManager>().Play("cardSlide6");
+        
+        soundClips.Play("cardSlide6");
     }
 
     // Should change name to StartRound()?
-    public void StartGame()
+    void StartGame()
     {
         endTurnButton.interactable = true;
         swapCardButton.interactable = true;
         nextRoundButton.interactable = false;
 
+        // Emptying hands
         while(player.HasCards)
         {
             player.Draw(0);

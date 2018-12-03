@@ -75,14 +75,17 @@ public class CardStack : MonoBehaviour
             //get the value of the deck when you add 1
             int cardRank = (card % 13);
             
+            // number from ace to 9
             if (cardRank < 9)
             {
                 cardRank += 1;
             }
+            // number = 10
             else if (cardRank == 9)
             {
                 cardRank = 0;
             }
+            // jack queen king
             else if (cardRank >= 10)
             {
                 cardRank = 10;
@@ -175,7 +178,7 @@ public class CardStack : MonoBehaviour
         cards.Clear();
     }
 
-    void Start()
+    public void Start()
     {
         cards = new List<int>();
         if (isGameDeck)
