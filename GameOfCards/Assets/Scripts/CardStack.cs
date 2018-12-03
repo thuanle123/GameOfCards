@@ -39,10 +39,10 @@ public class CardStack : MonoBehaviour
     }
 
     //This is your Card Draw method(), i just move it up here
-    public int Draw()
+    public int Draw(int position)
     {
-        int temp = cards[0];
-        cards.RemoveAt(0);
+        int temp = cards[position];
+        cards.RemoveAt(position);
 
         //to remove card from the stack
         if (CardRemoved != null)
@@ -55,6 +55,11 @@ public class CardStack : MonoBehaviour
     public void push(int card)
     {
         cards.Add(card);
+    }
+
+    public void InsertCard(int position, int card)
+    {
+        cards.Insert(position, card);
     }
 
     //calculate the hand value

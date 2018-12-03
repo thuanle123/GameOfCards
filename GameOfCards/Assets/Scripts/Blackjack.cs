@@ -88,7 +88,7 @@ public class Blackjack : MonoBehaviour {
 
     public void Hit()
     {
-        player.push(deck.Draw());
+        player.push(deck.Draw(0));
         Debug.Log("Player score = " + player.BlackjackSumValue());
         playerHandScore.text = player.BlackjackSumValue().ToString();
         if (player.BlackjackSumValue() > 21)
@@ -140,18 +140,18 @@ public class Blackjack : MonoBehaviour {
         // Empty the hands.
         while (player.HasCards)
         {
-            player.Draw();
+            player.Draw(0);
         }
         while (dealer.HasCards)
         {
-            dealer.Draw();
+            dealer.Draw(0);
         }
 
         // Draw the hands
         for (int i = 0; i < 2; i++)
         {
-            player.push(deck.Draw());
-            dealer.push(deck.Draw());
+            player.push(deck.Draw(0));
+            dealer.push(deck.Draw(0));
         }
 
         winnerText.text = "";
@@ -163,7 +163,7 @@ public class Blackjack : MonoBehaviour {
 
     void DealerHit ()
     {
-        int card = deck.Draw();
+        int card = deck.Draw(0);
         dealer.push(card);
     }
 

@@ -12,6 +12,8 @@ public class Chance : MonoBehaviour
     public CardStack player;
     public CardStack deck;
 
+    public CardStack tempStack;
+
     // Create these buttons in Chance scene
     public Button playAgainButton;
     public Button endTurnButton;
@@ -94,16 +96,27 @@ public class Chance : MonoBehaviour
 
         // Pick random cards from both hands to be swapped.
         int randomPlayer = Random.Range(0, 3);
+        //int randomPlayer = 0;
         int randomDealer = Random.Range(0, 3);
+
+        
+
         Debug.Log("randomP number = " + randomPlayer);
-        Debug.Log("randomD number = " + randomDealer);
+        Debug.Log("randomD number = " + randomPlayer);
+        Debug.Log("card drawn from player deck = " + player.cards[0]);
 
         // Swap cards.
-            int tempCard = player.cards[randomPlayer];
-            player.cards.RemoveAt(randomPlayer);
-            player.cards[randomPlayer] = dealer.cards[randomDealer];
-            dealer.cards.RemoveAt(randomDealer);
-            dealer.cards[randomDealer] = tempCard;
+            //int tempCard = player.cards[randomPlayer];
+            tempStack.InsertCard(0, player.Draw(randomPlayer));
+            //player.cards.RemoveAt(randomPlayer);
+            //player.cards[randomPlayer] = dealer.cards[randomPlayer];
+            player.InsertCard(randomPlayer, dealer.Draw(randomDealer));
+            dealer.InsertCard(randomDealer, tempStack.Draw(0));
+            //dealer.cards.RemoveAt(randomPlayer);
+            //dealer.cards[randomPlayer] = tempCard;
+
+            //SpriteRenderer tempCardRenderer = tempCard.GetComponent<SpriteRenderer>();
+
 
         Debug.Log("After Swap, player hand value = "+ player.ChanceHandValue());
         Debug.Log("After Swap, dealer hand value = "+ dealer.ChanceHandValue());
@@ -213,11 +226,11 @@ public class Chance : MonoBehaviour
 
         while(player.HasCards)
         {
-            player.Draw();
+            player.Draw(0);
         }
         while (dealer.HasCards)
         {
-            dealer.Draw();
+            dealer.Draw(0);
         }
         // If the deck has less than or equal to 6 cards, then we have reached 
         // the end of the game, so we dont draw.
@@ -227,8 +240,8 @@ public class Chance : MonoBehaviour
             // Draw hands.
             for (int i = 0; i < 3; i++)
             {
-                player.push(deck.Draw());
-                dealer.push(deck.Draw());
+                player.push(deck.Draw(0));
+                dealer.push(deck.Draw(0));
             }
             // Update hand scores.
             if (player.ChanceHandValue() == 30)
