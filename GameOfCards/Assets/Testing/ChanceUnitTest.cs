@@ -95,6 +95,13 @@ public class ChanceUnitTest {
         chance.player = CardStackFunctions.GetCardStackMock();
         chance.dealer = CardStackFunctions.GetCardStackMock();
         chance.deck = CardStackFunctions.GetCardStackMock();
+        chance.deck.Start();
+
+        //chance.soundClips = Substitute.For<AudioManager>();
+        //chance.soundClips.sounds = new Sounds[3];
+        //chance.soundClips.sounds = 
+ 
+
         chance.playAgainButton = Substitute.For<Button>();
         chance.winnerText =Substitute.For<Text>();
         chance.playerScore =Substitute.For<Text>();
@@ -105,7 +112,7 @@ public class ChanceUnitTest {
         chance.swapCardButton = Substitute.For<Button>();
         chance.nextRoundButton = Substitute.For<Button>();
 
-        chance.StartGame();
+        chance.Start();
 
         return chance;
     }

@@ -22,9 +22,10 @@ public class Blackjack : MonoBehaviour {
     public Button playAgainButton;
     public Button standButton;
 
-    public int dealersFirstCard = -1;
     public int roundsWonPlayer = 0;
     public int roundsWonDealer = 0;
+
+    public GameObject HandCover;
 
     /* Blackjack Rules:
      * The player attemps to beat the dealer by getting a count as 
@@ -56,7 +57,17 @@ public class Blackjack : MonoBehaviour {
      */
 
     // Use this for initialization
+
+    // update UI
+    // update naming
+    // move scores above cards to avoid overlap
     void Start () {
+        //CoverHand();
+        roundsWonPlayer = roundsWonDealer = 0;
+        playerScore.text = roundsWonPlayer.ToString();
+        dealerScore.text = roundsWonDealer.ToString();
+        winnerText.text = "";
+
         StartGame();
         FindObjectOfType<AudioManager>().Play("cardShuffle");
     }
@@ -64,11 +75,20 @@ public class Blackjack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-	}
+	} 
+
+    public void CoverHand() //Open panel function
+    {
+        if(HandCover != null)//Checks to see if there is a HandCover. 
+        {
+            if (HandCover.activeSelf) { HandCover.SetActive(false); } //If the HandCover is being displayed, close it. 
+            else { HandCover.SetActive(true); } //If the button has not been pressed, show HandCover.
+        }
+    }
 
     public void Hit()
     {
-        player.push(deck.Draw());
+        player.push(deck.Draw(0));
         Debug.Log("Player score = " + player.BlackjackSumValue());
         playerHandScore.text = player.BlackjackSumValue().ToString();
         if (player.BlackjackSumValue() > 21)
@@ -87,7 +107,6 @@ public class Blackjack : MonoBehaviour {
         hitButton.interactable = false;
         standButton.interactable = false;
 
-
         StartCoroutine(DealersTurn());
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
@@ -95,74 +114,73 @@ public class Blackjack : MonoBehaviour {
     public void PlayAgain()
     {
         playAgainButton.interactable = false;
-        dealersFirstCard = -1;
+
 
         hitButton.interactable = true;
         standButton.interactable = true;
+
+        CoverHand();
 
         StartGame();
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
-   public void StartGame ()
+    public void NewGame()
+    {
+        deck.Shuffle();
+        CoverHand();
+        hitButton.interactable = true;
+        standButton.interactable = true;
+
+        Start();
+    }
+
+    void StartGame ()
     {
         // Empty the hands.
         while (player.HasCards)
         {
-            player.Draw();
+            player.Draw(0);
         }
         while (dealer.HasCards)
         {
-            dealer.Draw();
+            dealer.Draw(0);
         }
 
         // Draw the hands
         for (int i = 0; i < 2; i++)
         {
-            player.push(deck.Draw());
-            dealer.push(deck.Draw());
+            player.push(deck.Draw(0));
+            dealer.push(deck.Draw(0));
         }
 
         winnerText.text = "";
         dealerHandScore.text = "";
         playerHandScore.text = player.BlackjackSumValue().ToString();
+
+        nextRoundButton.interactable = false;
     }
 
-    void dealerHit ()
+    void DealerHit ()
     {
-        // Draw card -> check for bust?
-        int card = deck.Draw();
-
-        if (dealersFirstCard < 0)
-        {
-            dealersFirstCard = card;
-        }
-
+        int card = deck.Draw(0);
         dealer.push(card);
-        if (dealer.CardCount >= 2)
-        {
-            //CardStackView view = dealer.GetComponent<CardStackView>();
-            //view.toggle(card, true);
-        }
     }
 
     IEnumerator DealersTurn()
     {
 
-        //CardStackView view = dealer.GetComponent<CardStackView>();
-        //view.toggle(dealersfirstcard, true);
-        //view.ShowCards();
-        //yield return new WaitForSeconds(1f);
-
-        while (dealer.BlackjackSumValue() < 17)
+        CoverHand();
+        dealerHandScore.text = dealer.BlackjackSumValue().ToString();
+        yield return new WaitForSeconds(1f);
+        while (dealer.BlackjackSumValue() < 17 && player.BlackjackSumValue() <= 21)
         {
-            dealerHit();
+            DealerHit();
+            dealerHandScore.text = dealer.BlackjackSumValue().ToString();
             yield return new WaitForSeconds(1f);
         }
 
-        dealerHandScore.text = dealer.BlackjackSumValue().ToString();
-
-        if(player.BlackjackSumValue() > 21 || (dealer.BlackjackSumValue() >= player.BlackjackSumValue() && dealer.BlackjackSumValue() <= 21))
+        if(player.BlackjackSumValue() > 21 || (dealer.BlackjackSumValue() > player.BlackjackSumValue() && dealer.BlackjackSumValue() <= 21))
         {
             winnerText.text = "You lose.";
             roundsWonDealer++;
@@ -177,7 +195,13 @@ public class Blackjack : MonoBehaviour {
             winnerText.text = "The house wins.";
         }
 
-        yield return new WaitForSeconds(1f);
-        playAgainButton.interactable = true;
+        if(deck.CardCount <= 10) 
+        {
+            winnerText.text = "Game over!";
+            playAgainButton.interactable = false;
+        } else 
+        {
+            playAgainButton.interactable = true;
+        }
     }
 }

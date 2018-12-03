@@ -39,10 +39,10 @@ public class CardStack : MonoBehaviour
     }
 
     //This is your Card Draw method(), i just move it up here
-    public int Draw()
+    public int Draw(int position)
     {
-        int temp = cards[0];
-        cards.RemoveAt(0);
+        int temp = cards[position];
+        cards.RemoveAt(position);
 
         //to remove card from the stack
         if (CardRemoved != null)
@@ -55,6 +55,11 @@ public class CardStack : MonoBehaviour
     public void push(int card)
     {
         cards.Add(card);
+    }
+
+    public void InsertCard(int position, int card)
+    {
+        cards.Insert(position, card);
     }
 
     //calculate the hand value
@@ -70,14 +75,17 @@ public class CardStack : MonoBehaviour
             //get the value of the deck when you add 1
             int cardRank = (card % 13);
             
+            // number from ace to 9
             if (cardRank < 9)
             {
                 cardRank += 1;
             }
+            // number = 10
             else if (cardRank == 9)
             {
                 cardRank = 0;
             }
+            // jack queen king
             else if (cardRank >= 10)
             {
                 cardRank = 10;
@@ -127,7 +135,6 @@ public class CardStack : MonoBehaviour
                 sum = sum + 1;
             }
         }
-        Debug.Log("sum = " + sum);
         return sum;
     }
     
@@ -162,6 +169,8 @@ public class CardStack : MonoBehaviour
                 cards[j] = temp;
             }
         }
+
+        Debug.Log("Number of Cards = " + CardCount);
     }
 
     public void Clear()
@@ -169,7 +178,7 @@ public class CardStack : MonoBehaviour
         cards.Clear();
     }
 
-    void Start()
+    public void Start()
     {
         cards = new List<int>();
         if (isGameDeck)

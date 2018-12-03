@@ -33,7 +33,7 @@ public class DeckUnitTest
         System.Random r = new System.Random();  // Create a random number generator
         var randomCard = r.Next(0, 52);         // Generate a random card between 0 to 51
         deck.push(randomCard);                  // Push it onto the deck
-        Assert.That(deck.Draw, Is.EqualTo(randomCard));
+        Assert.That(deck.Draw(0), Is.EqualTo(randomCard));
     }
 
     [Test]
@@ -63,8 +63,8 @@ public class DeckUnitTest
         int notEqualCount = 0;
         for (int i = 0; i < 52; i++)
         {
-            int unshuffledCard = unshuffledDeck.Draw();
-            int shuffledCard = shuffledDeck.Draw();
+            int unshuffledCard = unshuffledDeck.Draw(0);
+            int shuffledCard = shuffledDeck.Draw(0);
             if (unshuffledCard != shuffledCard)
             {
                 notEqualCount++;
