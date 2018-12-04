@@ -24,19 +24,24 @@ public class BlackJackUnitTest
         blackJack.player = CardStackFunctions.GetCardStackMock();
         blackJack.deck = CardStackFunctions.GetCardStackMock();
 
+        // new text test
+        blackJack.gameOverText = Substitute.For<Text>();
         blackJack.winnerText = Substitute.For<Text>(); 
         blackJack.playerScore = Substitute.For<Text>(); 
         blackJack.dealerScore = Substitute.For<Text>(); 
         blackJack.playerHandScore = Substitute.For<Text>(); 
         blackJack.dealerHandScore = Substitute.For<Text>();
 
-        blackJack.endTurnButton = Substitute.For<Button>();
+        // it is unused in blackjack
+        //blackJack.endTurnButton = Substitute.For<Button>();
         blackJack.hitButton = Substitute.For<Button>();
         blackJack.nextRoundButton = Substitute.For<Button>();
         blackJack.playAgainButton  = Substitute.For<Button>();
         blackJack.standButton = Substitute.For<Button>();
 
-        blackJack.StartGame();
+        // PLEASE LOOK INTO THIS, StartGame() gives a compile error
+        // I just make it start so it won't give me an error
+        blackJack.Start();
 
         return blackJack; 
     }

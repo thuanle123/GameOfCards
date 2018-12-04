@@ -9,17 +9,26 @@ using UnityEngine;
  * Back() exit the panel
  */
 
-public class GameRules : MonoBehaviour {
-
-    public GameObject Panel; //This is the panel that will be opened, can be used for any panel UI.
-
-    public void OpenPanel() //Open panel function
+public class GameRules : MonoBehaviour
+{
+    //This is the panel that will be opened, can be used for any panel UI.
+    public GameObject Panel;
+    //Open panel function
+    public void OpenPanel()
     {
-        if(Panel != null)//Checks to see if there is a panel. 
+        //Checks to see if there is a panel. 
+        if (Panel != null)
         {
-            if (Panel.activeSelf) { Panel.SetActive(false); } //If the panel is being displayed, close it. 
-            else { Panel.SetActive(true); } //If the button has not been pressed, show panel.
+            //If the panel is being displayed, close it. 
+            if (Panel.activeSelf)
+            {
+                Panel.SetActive(false);
+            }
+            //If the button has not been pressed, show panel.
+            else
+            {
+                Panel.SetActive(true);
+            } //If the button has not been pressed, show panel.
         }
-
     }
 }

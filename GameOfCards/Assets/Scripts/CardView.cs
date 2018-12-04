@@ -14,7 +14,7 @@ public class CardView : MonoBehaviour
     public bool reverseLayer = false;
     public GameObject cardPrefab;
 
-	void Start ()
+	void Start()
     {
         // This grab a reference to the component of Deck
         fetchedCards = new Dictionary<int, GameObject>();
@@ -29,7 +29,6 @@ public class CardView : MonoBehaviour
     // Destroy take the game object and remove the scene
     private void Deck_CardRemoved(object sender, CardRemoved e)
     {
-        
         if (fetchedCards.ContainsKey(e.CIndex))
         {
             Destroy(fetchedCards[e.CIndex]);
@@ -83,8 +82,5 @@ public class CardView : MonoBehaviour
 
         spriteRenderer.sortingOrder = 51 - positionalIndex;
         fetchedCards.Add(cardIndex, cardCopy); // The line that actually displays the card
-        //Debug.Log("Hand Value = " + deck.ChanceHandValue());
-        //Debug.Log("Test Value = " + deck.BlackjackSumValue());
     }
-
 }

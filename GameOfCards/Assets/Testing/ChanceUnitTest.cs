@@ -100,7 +100,6 @@ public class ChanceUnitTest {
         //chance.soundClips = Substitute.For<AudioManager>();
         //chance.soundClips.sounds = new Sounds[3];
         //chance.soundClips.sounds = 
- 
 
         chance.playAgainButton = Substitute.For<Button>();
         chance.winnerText =Substitute.For<Text>();

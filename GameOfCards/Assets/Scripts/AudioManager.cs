@@ -46,8 +46,10 @@ public class AudioManager : MonoBehaviour {
     {
         Play("Bar");
     }
+    // DOn't need this (?)
+    
     public void Play (string name)
-    {
+    { 
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {

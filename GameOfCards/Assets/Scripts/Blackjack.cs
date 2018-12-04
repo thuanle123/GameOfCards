@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Blackjack : MonoBehaviour {
-
+public class Blackjack : MonoBehaviour
+{
     // Variables
     public CardStack dealer;
     public CardStack player;
     public CardStack deck;
 
     public Text winnerText;
+    public Text gameOverText;
     public Text playerScore;
     public Text dealerScore;
     public Text playerHandScore;
     public Text dealerHandScore;
 
-    public Button endTurnButton;
     public Button hitButton;
     public Button nextRoundButton;
     public Button playAgainButton;
     public Button standButton;
 
-    public int roundsWonPlayer = 0;
-    public int roundsWonDealer = 0;
+    public int roundWonByPlayer = 0;
+    public int roundWonByDealer = 0;
 
     public GameObject HandCover;
+    //public AudioManager soundClips;
 
     /* Blackjack Rules:
      * The player attemps to beat the dealer by getting a count as 
@@ -61,33 +62,47 @@ public class Blackjack : MonoBehaviour {
     // update UI
     // update naming
     // move scores above cards to avoid overlap
-    void Start () {
+    public void Start ()
+    {
         //CoverHand();
-        roundsWonPlayer = roundsWonDealer = 0;
-        playerScore.text = roundsWonPlayer.ToString();
-        dealerScore.text = roundsWonDealer.ToString();
+        roundWonByPlayer = roundWonByDealer = 0;
+        playerScore.text = roundWonByPlayer.ToString();
+        dealerScore.text = roundWonByDealer.ToString();
         winnerText.text = "";
-
+        gameOverText.text = "";
         StartGame();
         FindObjectOfType<AudioManager>().Play("cardShuffle");
+        //soundClips.Play("cardShuffle");
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
-	} 
+	}
 
-    public void CoverHand() //Open panel function
+    //Open panel function
+    public void CoverHand()
     {
-        if(HandCover != null)//Checks to see if there is a HandCover. 
+        //Checks to see if there is a HandCover.
+        // If the HandCover is being displayed, close it. 
+        //If the button has not been pressed, show HandCover.
+        if (HandCover != null)
         {
-            if (HandCover.activeSelf) { HandCover.SetActive(false); } //If the HandCover is being displayed, close it. 
-            else { HandCover.SetActive(true); } //If the button has not been pressed, show HandCover.
+            if (HandCover.activeSelf)
+            {
+                HandCover.SetActive(false);
+            }
+            else
+            {
+                HandCover.SetActive(true);
+            }
         }
     }
 
     public void Hit()
     {
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
+        //soundClips.Play("cardSlide6");
         player.push(deck.Draw(0));
         Debug.Log("Player score = " + player.BlackjackSumValue());
         playerHandScore.text = player.BlackjackSumValue().ToString();
@@ -97,7 +112,7 @@ public class Blackjack : MonoBehaviour {
             hitButton.interactable = false;
             standButton.interactable = false;
             StartCoroutine(DealersTurn());
-            FindObjectOfType<AudioManager>().Play("cardSlide6");
+            //soundClips.Play("cardSlide6");
         }
     }
 
@@ -106,21 +121,15 @@ public class Blackjack : MonoBehaviour {
         // dealer
         hitButton.interactable = false;
         standButton.interactable = false;
-
         StartCoroutine(DealersTurn());
-        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     public void PlayAgain()
     {
         playAgainButton.interactable = false;
-
-
         hitButton.interactable = true;
         standButton.interactable = true;
-
         CoverHand();
-
         StartGame();
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
@@ -128,10 +137,9 @@ public class Blackjack : MonoBehaviour {
     public void NewGame()
     {
         deck.Shuffle();
-        CoverHand();
+        HandCover.SetActive(true);
         hitButton.interactable = true;
         standButton.interactable = true;
-
         Start();
     }
 
@@ -146,18 +154,15 @@ public class Blackjack : MonoBehaviour {
         {
             dealer.Draw(0);
         }
-
         // Draw the hands
         for (int i = 0; i < 2; i++)
         {
             player.push(deck.Draw(0));
             dealer.push(deck.Draw(0));
         }
-
-        winnerText.text = "";
+        winnerText.text =  "";
         dealerHandScore.text = "";
         playerHandScore.text = player.BlackjackSumValue().ToString();
-
         nextRoundButton.interactable = false;
     }
 
@@ -169,37 +174,72 @@ public class Blackjack : MonoBehaviour {
 
     IEnumerator DealersTurn()
     {
-
         CoverHand();
         dealerHandScore.text = dealer.BlackjackSumValue().ToString();
         yield return new WaitForSeconds(1f);
         while (dealer.BlackjackSumValue() < 17 && player.BlackjackSumValue() <= 21)
         {
+            FindObjectOfType<AudioManager>().Play("cardSlide6");
             DealerHit();
             dealerHandScore.text = dealer.BlackjackSumValue().ToString();
             yield return new WaitForSeconds(1f);
         }
+        /* I don't know where to put this for now
+        // If you’re dealt an ace and 10 as your first two cards, that’s blackjack. 
+        //This is an automatic win for you unless the dealer gets the same. 
+        //If this happens, it’s called a push and no one wins.
+        // Basically, if this happen i want it to go to the next round
+        if (player.BlackjackSumValue() == 21 && dealer.BlackjackSumValue() != 21)
+        {
+            playerHandScore.text = "Blackjack!!";
+            roundWonByPlayer++;
+            playerScore.text = roundWonByPlayer.ToString();
+        }
+        else if ((player.BlackjackSumValue() != 21 && dealer.BlackjackSumValue() == 21))
+        {
+            playerHandScore.text = "Blackjack!!";
+            roundWonByDealer++;
+            dealerScore.text = roundWonByDealer.ToString();
+        }*/
 
-        if(player.BlackjackSumValue() > 21 || (dealer.BlackjackSumValue() > player.BlackjackSumValue() && dealer.BlackjackSumValue() <= 21))
+        // Problem with this code for now
+        // if you get a 21 and the dealer draws until he gets a 21
+        // the round will count as draw, instead of you win
+        if (player.BlackjackSumValue() > 21 || (dealer.BlackjackSumValue() > player.BlackjackSumValue() && dealer.BlackjackSumValue() <= 21))
         {
             winnerText.text = "You lose.";
-            roundsWonDealer++;
-            dealerScore.text = roundsWonDealer.ToString();
-        } else if (dealer.BlackjackSumValue() > 21 || (player.BlackjackSumValue() <= 21 && player.BlackjackSumValue() > dealer.BlackjackSumValue()))
+            roundWonByDealer++;
+            dealerScore.text = roundWonByDealer.ToString();
+        }
+        else if (dealer.BlackjackSumValue() > 21 || (player.BlackjackSumValue() <= 21 && player.BlackjackSumValue() > dealer.BlackjackSumValue()))
         {
             winnerText.text = "You win!";
-            roundsWonPlayer++;
-            playerScore.text = roundsWonPlayer.ToString();
-        } else
+            roundWonByPlayer++;
+            playerScore.text = roundWonByPlayer.ToString();
+        }
+        else
         {
-            winnerText.text = "The house wins.";
+            winnerText.text = "Draw";
         }
 
         if(deck.CardCount <= 10) 
         {
-            winnerText.text = "Game over!";
+            gameOverText.text = "Deck is running out of cards.\r\nGame over.";
+            if (roundWonByDealer > roundWonByPlayer)
+            {
+                winnerText.text = "Dealer wins the game!";
+            }
+            else if (roundWonByPlayer > roundWonByDealer)
+            {
+                winnerText.text = "You win the game!";
+            }
+            else
+            {
+                winnerText.text = "Tie game!";
+            }
             playAgainButton.interactable = false;
-        } else 
+        }
+        else 
         {
             playAgainButton.interactable = true;
         }
