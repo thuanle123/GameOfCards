@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class CardStack : MonoBehaviour
 {
-    // this list is private
     public List<int> cards;
-
     public bool isGameDeck;
     public event RemovedEventHandler CardRemoved; //delegate
 
     public bool HasCards{ get { return cards != null && cards.Count > 0; } }
 
-    // need a public method to numerate through them all
-    // need to use yield
+    // Public method to numerate through cards.
     public IEnumerable<int> GetCards()
     {
         foreach (int i in cards)
@@ -22,7 +19,7 @@ public class CardStack : MonoBehaviour
         }
     }
 
-    //Get card count from card stack
+    // Gets number of cards in the stack.
     public int CardCount
     {
         get
@@ -38,13 +35,14 @@ public class CardStack : MonoBehaviour
         }
     }
 
-    //This is your Card Draw method(), i just move it up here
+    // Draws a card from the stack.
+    // To draw from the top, call Draw(0);
     public int Draw(int position)
     {
         int temp = cards[position];
         cards.RemoveAt(position);
 
-        //to remove card from the stack
+        // Actually removes card from the stack.
         if (CardRemoved != null)
         {
             CardRemoved(this, new CardRemoved(temp));
@@ -52,17 +50,19 @@ public class CardStack : MonoBehaviour
         return temp;
     }
 
+    // Pushes card to top of the stack.
     public void push(int card)
     {
         cards.Add(card);
     }
 
+    // Inserts a card to a specific position in the list.
     public void InsertCard(int position, int card)
     {
         cards.Insert(position, card);
     }
 
-    //calculate the hand value
+    // Calculate the hand value for Chance.
     public int ChanceSumValue()
     {
         int sum = 0;
@@ -95,7 +95,7 @@ public class CardStack : MonoBehaviour
         return sum;
     }
 
-    // same as ChanceSumValue() but face cards are worth 10.
+    // Calculate the hand value for blackjack.
     public int BlackjackSumValue()
     {
         int sum = 0;

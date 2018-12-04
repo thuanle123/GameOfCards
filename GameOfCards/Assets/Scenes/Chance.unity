@@ -964,8 +964,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: 0}
-  m_SizeDelta: {x: 207.6, y: 31.1}
+  m_AnchoredPosition: {x: 13.2, y: -3.325}
+  m_SizeDelta: {x: 260.4, y: 55.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350901653
 MonoBehaviour:
@@ -988,7 +988,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 17
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -3172,7 +3172,6 @@ MonoBehaviour:
   dealer: {fileID: 226019637}
   player: {fileID: 501503418}
   deck: {fileID: 898372448}
-  tempStack: {fileID: 78973668}
   playAgainButton: {fileID: 1178932321}
   endTurnButton: {fileID: 1433666076}
   swapCardButton: {fileID: 127594173}

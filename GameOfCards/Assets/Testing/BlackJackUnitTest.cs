@@ -36,7 +36,7 @@ public class BlackJackUnitTest
         blackJack.playAgainButton  = Substitute.For<Button>();
         blackJack.standButton = Substitute.For<Button>();
 
-        blackJack.StartGame();
+        blackJack.Start();
 
         return blackJack; 
     }
