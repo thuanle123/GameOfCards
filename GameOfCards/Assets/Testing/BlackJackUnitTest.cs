@@ -24,6 +24,8 @@ public class BlackJackUnitTest
         blackJack.player = CardStackFunctions.GetCardStackMock();
         blackJack.deck = CardStackFunctions.GetCardStackMock();
 
+        // new text test
+        blackJack.gameOverText = Substitute.For<Text>();
         blackJack.winnerText = Substitute.For<Text>(); 
         blackJack.playerScore = Substitute.For<Text>(); 
         blackJack.dealerScore = Substitute.For<Text>(); 

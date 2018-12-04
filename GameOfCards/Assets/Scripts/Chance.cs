@@ -121,6 +121,7 @@ public class Chance : MonoBehaviour
         }
 
         dealerHandScore.text = "";
+        // remove this line pass all Chance test
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
@@ -202,6 +203,7 @@ public class Chance : MonoBehaviour
         playerScore.text = "0";
         dealerScore.text = "0";
         StartGame();
+        // remove this line pass all Chance test
         FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
@@ -211,14 +213,12 @@ public class Chance : MonoBehaviour
         endTurnButton.interactable = true;
         swapCardButton.interactable = true;
         nextRoundButton.interactable = false;
-
         // Emptying hands
         while(player.HasCards && dealer.HasCards)
         {
             player.Draw(0);
             dealer.Draw(0);
         }
-
         // If the deck has less than or equal to 6 cards, then we have reached 
         // the end of the game, so we dont draw.
         if (deck.CardCount >= 6)
