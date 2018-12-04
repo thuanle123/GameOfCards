@@ -31,60 +31,58 @@ public class ChanceUnitTest {
     [Test]
     public void test_c_player_hand_loses() //Make sure the card value are being properly added together to determine a loser.
     {
-        var player = CardStackFunctions.GetCardStackMock();
-        var dealer = CardStackFunctions.GetCardStackMock();
+
+        var chance = GetChanceMock();
 
         //Player has a score of 3
-        player.push(0);
-        player.push(13);
-        player.push(26);
+        chance.player.push(0);
+        chance.player.push(13);
+        chance.player.push(26);
 
         //Dealer has all face cards
-        dealer.push(10);
-        dealer.push(11);
-        dealer.push(12);
+        chance.dealer.push(10);
+        chance.dealer.push(11);
+        chance.dealer.push(12);
 
-        Assert.That(player.ChanceSumValue(), Is.LessThan(dealer.ChanceSumValue())); // Assert  that player will lose
-        Assert.That(player.ChanceHandValue(), Is.LessThan(dealer.ChanceHandValue()));
+        Assert.That(chance.player.ChanceSumValue(), Is.LessThan(chance.dealer.ChanceSumValue())); // Assert  that player will lose
+        Assert.That(chance.player.ChanceHandValue(), Is.LessThan(chance.dealer.ChanceHandValue()));
     }
 
     [Test]
     public void test_d_player_hand_wins() //Makes sure the card values are being properly added together to determine a winner
     {
-        var player = CardStackFunctions.GetCardStackMock();
-        var dealer = CardStackFunctions.GetCardStackMock();
+        var chance = GetChanceMock();
 
         //Player has all face cards
-        player.push(10);
-        player.push(11);
-        player.push(12);
+        chance.player.push(10);
+        chance.player.push(11);
+        chance.player.push(12);
 
         //Dealer has score of 3
-        dealer.push(0);
-        dealer.push(13);
-        dealer.push(26);
+        chance.dealer.push(0);
+        chance.dealer.push(13);
+        chance.dealer.push(26);
 
-        Assert.That(player.ChanceSumValue(), Is.GreaterThan(dealer.ChanceSumValue())); //Assert that player will win
-        Assert.That(player.ChanceHandValue(), Is.GreaterThan(dealer.ChanceHandValue()));
+        Assert.That(chance.player.ChanceSumValue(), Is.GreaterThan(chance.dealer.ChanceSumValue())); //Assert that player will win
+        Assert.That(chance.player.ChanceHandValue(), Is.GreaterThan(chance.dealer.ChanceHandValue()));
 
     }
 
     [Test]
     public void test_e_player_dealer_draw() //Makes sure the card value are being added together to determine a draw
     {
-        var player = CardStackFunctions.GetCardStackMock();
-        var dealer = CardStackFunctions.GetCardStackMock();
+        var chance = GetChanceMock();
 
-        player.push(10);
-        player.push(11);
-        player.push(12);
+        chance.player.push(10);
+        chance.player.push(11);
+        chance.player.push(12);
 
-        dealer.push(23);
-        dealer.push(24);
-        dealer.push(25);
+        chance.dealer.push(23);
+        chance.dealer.push(24);
+        chance.dealer.push(25);
 
-        Assert.That(player.ChanceSumValue(), Is.EqualTo(dealer.ChanceSumValue())); //Assert that player and dealer will draw
-        Assert.That(player.ChanceHandValue(), Is.EqualTo(dealer.ChanceHandValue()));
+        Assert.That(chance.player.ChanceSumValue(), Is.EqualTo(chance.dealer.ChanceSumValue())); //Assert that player and dealer will draw
+        Assert.That(chance.player.ChanceHandValue(), Is.EqualTo(chance.dealer.ChanceHandValue()));
 
 
     }

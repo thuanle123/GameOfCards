@@ -135,7 +135,7 @@ public class Blackjack : MonoBehaviour {
         Start();
     }
 
-    void StartGame ()
+    public void StartGame ()
     {
         // Empty the hands.
         while (player.HasCards)
