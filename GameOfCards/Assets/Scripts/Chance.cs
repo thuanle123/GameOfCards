@@ -30,7 +30,7 @@ public class Chance : MonoBehaviour
     public GameObject HandCover2;
     public GameObject HandCover3;
 
-    public AudioManager soundClips;
+    //public AudioManager soundClips;
 
     int roundWonByPlayer = 0;
     int roundWonByDealer = 0;
@@ -47,83 +47,69 @@ public class Chance : MonoBehaviour
      * You continue playing until you reach the end of the deck. The player who won the most amount of rounds wins the game!
      */
 
-
-    #region Public Methods
-
-    // TODO: Reveal dealer hand at end of the round
-    // Solution should be in blackjack tutorial.
-
-    // TODO: Fix bug where swapping more than 2 times no longer is shown visually.
-    // Current fix: only allow 1 swap total (by the player)
-    // Cards are being represented correctly in the cardStack object, but not graphically being updated.
-    // Might have something to do with CardView (ShowCards() / AddCard())...
-
     // TODO: Once swapping bug is fixed, implement Dealer Swap AI (if < 5 then swap)
-
-    // TODO: Do we want hand scores to be visible throughout round?
-
-    // TODO: Convert "Back" button from onGUI() to a public method like the rest of our buttons? Done
-
-    // Function for player to swap a random card with dealer.
-
     // Make swap card button disabled after dealer refuses to swap.
 
-
-    public void CoverHand() //Open panel function
+    //Open panel function
+    public void CoverHand()
     {
-        if(HandCover1 != null)//Checks to see if there is a HandCover1. 
+        //Checks to see if there is a HandCover1. 
+        //If the HandCover1 is being displayed, close it. 
+        //If the button has not been pressed, show HandCover1.
+        if (HandCover1 != null)
         {
-            if (HandCover1.activeSelf) { HandCover1.SetActive(false); } //If the HandCover1 is being displayed, close it. 
-            else { HandCover1.SetActive(true); } //If the button has not been pressed, show HandCover1.
+            if (HandCover1.activeSelf)
+            {
+                HandCover1.SetActive(false);
+            }
+            else
+            {
+                HandCover1.SetActive(true);
+            }
         }
-        if(HandCover2 != null)//Checks to see if there is a HandCover2. 
+
+        //Checks to see if there is a HandCover2. 
+        //If the HandCover2 is being displayed, close it. 
+        //If the button has not been pressed, show HandCover2.
+        if (HandCover2 != null) 
         {
-            if (HandCover2.activeSelf) { HandCover2.SetActive(false); } //If the HandCover2 is being displayed, close it. 
-            else { HandCover2.SetActive(true); } //If the button has not been pressed, show HandCover2.
+            if (HandCover2.activeSelf)
+            {
+                HandCover2.SetActive(false);
+            } 
+            else
+            {
+                HandCover2.SetActive(true);
+            }
         }
-        if(HandCover3 != null)//Checks to see if there is a HandCover3. 
+
+        // Checks to see if there is a HandCover3.
+        // If the HandCover3 is being displayed, close it. 
+        // If the button has not been pressed, show HandCover3.
+        if (HandCover3 != null)
         {
-            if (HandCover3.activeSelf) { HandCover3.SetActive(false); } //If the HandCover3 is being displayed, close it. 
-            else { HandCover3.SetActive(true); } //If the button has not been pressed, show HandCover3.
+            if (HandCover3.activeSelf)
+            {
+                HandCover3.SetActive(false);
+            } 
+            else
+            {
+                HandCover3.SetActive(true);
+            }
         }
     }
+
+    // Swap random card between opponent and player hand
     public void SwapCard()
     {
-        // Grey out Swap Card button
-        //swapCardButton.interactable = false;
-
-        Debug.Log("Before Swap, player hand value = "+ player.ChanceHandValue());
-        Debug.Log("Before Swap, dealer hand value = "+ dealer.ChanceHandValue());
-
+        swapCardButton.interactable = false;
         // Pick random cards from both hands to be swapped.
         int randomPlayer = Random.Range(0, 3);
-        //int randomPlayer = 0;
         int randomDealer = Random.Range(0, 3);
 
-        
-
-        Debug.Log("randomP number = " + randomPlayer);
-        Debug.Log("randomD number = " + randomPlayer);
-        Debug.Log("card drawn from player deck = " + player.cards[0]);
-
-        // Swap cards.
-            //int tempCard = player.cards[randomPlayer];
-            //tempStack.InsertCard(0, player.Draw(randomPlayer));
-            int tempCard = player.Draw(randomPlayer);
-            //player.cards.RemoveAt(randomPlayer);
-            //player.cards[randomPlayer] = dealer.cards[randomPlayer];
-            player.InsertCard(randomPlayer, dealer.Draw(randomDealer));
-            
-            //dealer.InsertCard(randomDealer, tempStack.Draw(0));
-            dealer.InsertCard(randomDealer, tempCard);
-            //dealer.cards.RemoveAt(randomPlayer);
-            //dealer.cards[randomPlayer] = tempCard;
-
-            //SpriteRenderer tempCardRenderer = tempCard.GetComponent<SpriteRenderer>();
-
-
-        Debug.Log("After Swap, player hand value = "+ player.ChanceHandValue());
-        Debug.Log("After Swap, dealer hand value = "+ dealer.ChanceHandValue());
+        int tempCard = player.Draw(randomPlayer);
+        player.InsertCard(randomPlayer, dealer.Draw(randomDealer));
+        dealer.InsertCard(randomDealer, tempCard);
         // Update hand score.
         if (player.ChanceHandValue() == 30)
         {
@@ -135,15 +121,12 @@ public class Chance : MonoBehaviour
         }
 
         dealerHandScore.text = "";
-        //FindObjectOfType<AudioManager>().Play("cardSlide6");
-        soundClips.Play("cardSlide6");
-
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     // Function to end your turn for the round.
     public void EndTurn()
     {
-       
         // Grey out buttons.
         endTurnButton.interactable = false;
         swapCardButton.interactable = false;
@@ -151,22 +134,22 @@ public class Chance : MonoBehaviour
         if (player.ChanceHandValue() == 30)             
         {                 
             playerHandScore.text = "CHANCE";             
-        } else
+        }
+        else
         {
             playerHandScore.text = player.ChanceHandValue().ToString();
         }
         if (dealer.ChanceHandValue() == 30)             
-        {                 
+        {
             dealerHandScore.text = "CHANCE";             
-        } else
+        }
+        else
         {
             dealerHandScore.text = dealer.ChanceHandValue().ToString();
         }      
         
         // Compare hand values, update score/text.
-
         CoverHand();
-
         if (dealer.ChanceHandValue() > player.ChanceHandValue())
         {
             winnerText.text = "You lose the round.";
@@ -188,8 +171,6 @@ public class Chance : MonoBehaviour
         nextRoundButton.interactable = true;
     }
 
-    #endregion
-
     // Function to shuffle the deck and restart the game.
     // Play the cardShuffle music
     public void PlayAgain()
@@ -198,10 +179,11 @@ public class Chance : MonoBehaviour
         winnerText.text = "";
         // Without this line the score won't reset
         roundWonByPlayer = roundWonByDealer = 0;
-        CoverHand();
+        HandCover1.SetActive(true);
+        HandCover2.SetActive(true);
+        HandCover3.SetActive(true);
         Start();
-        //FindObjectOfType<AudioManager>().Play("cardShuffle");
-        soundClips.Play("cardShuffle");
+        FindObjectOfType<AudioManager>().Play("cardShuffle");
     }
 
     // Function to move on to the next round of the game.
@@ -211,8 +193,7 @@ public class Chance : MonoBehaviour
         winnerText.text = "";
         CoverHand();
         StartGame();
-        //FindObjectOfType<AudioManager>().Play("cardFan1");
-        soundClips.Play("cardFan1");
+        FindObjectOfType<AudioManager>().Play("cardFan1");
     }
 
     // Starts a new game of Chance.
@@ -221,9 +202,7 @@ public class Chance : MonoBehaviour
         playerScore.text = "0";
         dealerScore.text = "0";
         StartGame();
-        //FindObjectOfType<AudioManager>().Play("cardSlide6");
-        
-        soundClips.Play("cardSlide6");
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     // Should change name to StartRound()?
@@ -234,19 +213,16 @@ public class Chance : MonoBehaviour
         nextRoundButton.interactable = false;
 
         // Emptying hands
-        while(player.HasCards)
+        while(player.HasCards && dealer.HasCards)
         {
             player.Draw(0);
-        }
-        while (dealer.HasCards)
-        {
             dealer.Draw(0);
         }
+
         // If the deck has less than or equal to 6 cards, then we have reached 
         // the end of the game, so we dont draw.
         if (deck.CardCount >= 6)
         {
-
             // Draw hands.
             for (int i = 0; i < 3; i++)
             {
@@ -257,7 +233,8 @@ public class Chance : MonoBehaviour
             if (player.ChanceHandValue() == 30)
             {
                 playerHandScore.text = "CHANCE";
-            } else
+            }
+            else
             {
                 playerHandScore.text = player.ChanceHandValue().ToString();
             }
@@ -267,6 +244,9 @@ public class Chance : MonoBehaviour
         {
             // End game. 
             CoverHand();
+            playerHandScore.text = "";
+            dealerHandScore.text = "";
+
             if (roundWonByDealer > roundWonByPlayer)
             {
                 winnerText.text = "Dealer wins the game!";

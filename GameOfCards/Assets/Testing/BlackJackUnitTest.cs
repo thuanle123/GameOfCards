@@ -30,13 +30,16 @@ public class BlackJackUnitTest
         blackJack.playerHandScore = Substitute.For<Text>(); 
         blackJack.dealerHandScore = Substitute.For<Text>();
 
-        blackJack.endTurnButton = Substitute.For<Button>();
+        // it is unused in blackjack
+        //blackJack.endTurnButton = Substitute.For<Button>();
         blackJack.hitButton = Substitute.For<Button>();
         blackJack.nextRoundButton = Substitute.For<Button>();
         blackJack.playAgainButton  = Substitute.For<Button>();
         blackJack.standButton = Substitute.For<Button>();
 
-        blackJack.StartGame();
+        // PLEASE LOOK INTO THIS, StartGame() gives a compile error
+        // I just make it start so it won't give me an error
+        blackJack.Start();
 
         return blackJack; 
     }

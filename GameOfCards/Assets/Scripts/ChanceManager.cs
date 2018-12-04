@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/*
+using UnityEngine;
 
 using UnityEngine.Networking;
 
@@ -164,5 +165,5 @@ public class ChanceManager : NetworkManager
         Debug.Log("Server triggered scene change and we've done the same, do any extra work here for the client...");
 
     }
-    */
-}
+   
+}*/
