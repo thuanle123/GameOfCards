@@ -50,7 +50,7 @@
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
-    <UnityVersion>2018.2.14f1</UnityVersion>
+    <UnityVersion>2018.2.18f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
