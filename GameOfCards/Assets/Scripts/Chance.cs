@@ -68,6 +68,8 @@ public class Chance : MonoBehaviour
             else { HandCover3.SetActive(true); }
         }
     }
+
+    // Swap random card between opponent and player hand
     public void SwapCard()
     {
         // Grey out Swap Card button
@@ -99,7 +101,6 @@ public class Chance : MonoBehaviour
     // Function to end your turn for the round.
     public void EndTurn()
     {
-       
         // Grey out buttons.
         endTurnButton.interactable = false;
         swapCardButton.interactable = false;
@@ -131,14 +132,16 @@ public class Chance : MonoBehaviour
         if (player.ChanceHandValue() == 30)             
         {                 
             playerHandScore.text = "CHANCE";             
-        } else
+        }
+        else
         {
             playerHandScore.text = player.ChanceHandValue().ToString();
         }
         if (dealer.ChanceHandValue() == 30)             
-        {                 
+        {
             dealerHandScore.text = "CHANCE";             
-        } else
+        }
+        else
         {
             dealerHandScore.text = dealer.ChanceHandValue().ToString();
         }      
@@ -172,9 +175,12 @@ public class Chance : MonoBehaviour
         deck.Shuffle();
         winnerText.text = "";
         roundWonByPlayer = roundWonByDealer = 0;
-        CoverHand();
+        HandCover1.SetActive(true);
+        HandCover2.SetActive(true);
+        HandCover3.SetActive(true);
         Start();
         soundClips.Play("cardShuffle");
+        //FindObjectOfType<AudioManager>().Play("cardShuffle");
     }
 
     // Function to move on to the next round of the game.
@@ -202,14 +208,10 @@ public class Chance : MonoBehaviour
         endTurnButton.interactable = true;
         swapCardButton.interactable = true;
         nextRoundButton.interactable = false;
-
         // Emptying hands
-        while(player.HasCards)
+        while(player.HasCards && dealer.HasCards)
         {
             player.Draw(0);
-        }
-        while (dealer.HasCards)
-        {
             dealer.Draw(0);
         }
 
@@ -227,7 +229,8 @@ public class Chance : MonoBehaviour
             if (player.ChanceHandValue() == 30)
             {
                 playerHandScore.text = "CHANCE";
-            } else
+            }
+            else
             {
                 playerHandScore.text = player.ChanceHandValue().ToString();
             }
