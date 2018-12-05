@@ -74,22 +74,22 @@ public class BlackJackUnitTest
         CardStackFunctions.FillWithCards(blackJack.deck, 52);
 
 
+        // new text test
+        blackJack.gameOverText = Substitute.For<Text>();
         blackJack.winnerText = Substitute.For<Text>(); 
         blackJack.playerScore = Substitute.For<Text>(); 
         blackJack.dealerScore = Substitute.For<Text>(); 
         blackJack.playerHandScore = Substitute.For<Text>(); 
         blackJack.dealerHandScore = Substitute.For<Text>();
 
-        blackJack.endTurnButton = Substitute.For<Button>();
+        // it is unused in blackjack
+        //blackJack.endTurnButton = Substitute.For<Button>();
         blackJack.hitButton = Substitute.For<Button>();
         blackJack.nextRoundButton = Substitute.For<Button>();
         blackJack.playAgainButton  = Substitute.For<Button>();
         blackJack.standButton = Substitute.For<Button>();
 
-        //blackJack.HandCover = Substitute.For<GameObject>();
-        //blackJack.HandCover.AddComponent<SpriteRenderer>();
-
-        blackJack.StartGame();
+        blackJack.Start();
 
         return blackJack; 
     }
