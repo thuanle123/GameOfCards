@@ -10,7 +10,7 @@ using System;
 public class BlackJackUnitTest  
 {
     [Test]
-    public void blackjack_a_setup_created() //Checks that players have the same amount of cards in there hand.
+    public void test_a_setup_created() //Checks that players have the same amount of cards in there hand.
     {
         var blackJack = GetBlackJackMock();
         Assert.That(blackJack.dealer.CardCount, Is.GreaterThan(0));
@@ -18,47 +18,50 @@ public class BlackJackUnitTest
     }
 
     [Test]
-    public void blackjack_b_player_win()
+    public void test_b_player_win()
     {
-        var blackJack = GetBlackJackMock();
+        var dealer = CardStackFunctions.GetCardStackMock();
+        var player = CardStackFunctions.GetCardStackMock();
 
-        blackJack.dealer.push(1);
-        blackJack.dealer.push(2);
+        dealer.push(1); // 2 of Clubs
+        dealer.push(2); // 3 of Clubs
 
-        blackJack.player.push(13);
-        blackJack.player.push(14);
+        player.push(13); // Ace of Diamonds
+        player.push(14); // 2 of Diamonds
 
-        Assert.That(blackJack.player.BlackjackSumValue(), Is.GreaterThan(blackJack.dealer.BlackjackSumValue())); // Assert  that player will win
+        Assert.That(player.BlackjackSumValue(), Is.GreaterThan(dealer.BlackjackSumValue())); // Assert  that player will win
 
     }
 
     [Test]
-    public void blackjack_c_player_lose()
+    public void test_c_player_lose()
     {
-        var blackJack = GetBlackJackMock();
+        var dealer = CardStackFunctions.GetCardStackMock();
+        var player = CardStackFunctions.GetCardStackMock();
 
-        blackJack.dealer.push(13);
-        blackJack.dealer.push(14);
+        dealer.push(13); // Ace of Diamonds
+        dealer.push(14); // 2 of Diamonds
 
-        blackJack.player.push(1);
-        blackJack.player.push(2);
+        player.push(1); // 2 of Clubs
+        player.push(2); // 3 of Clubs
 
-        Assert.That(blackJack.player.BlackjackSumValue(), Is.LessThan(blackJack.dealer.BlackjackSumValue())); // Assert  that player will lose
+        Assert.That(player.BlackjackSumValue(), Is.LessThan(dealer.BlackjackSumValue())); // Assert  that player will lose
 
     }
 
     [Test]
-    public void blackjack_d_draw_determined()
+    public void test_d_draw_determined()
     {
-        var blackJack = GetBlackJackMock();
+        var dealer = CardStackFunctions.GetCardStackMock();
+        var player = CardStackFunctions.GetCardStackMock();
 
-        blackJack.dealer.push(10);
-        blackJack.dealer.push(11);
+        dealer.push(10); // Jack of Clubs
+        dealer.push(11); // Queen of Clubs
 
-        blackJack.player.push(23);
-        blackJack.player.push(24);
+        player.push(23); // Jack of Diamonds
+        player.push(24); // Queen of Diamonds
 
-        Assert.That(blackJack.player.BlackjackSumValue(), Is.EqualTo(blackJack.dealer.BlackjackSumValue())); // Assert  that player will tie with dealer
+        Assert.That(player.BlackjackSumValue(), Is.EqualTo(dealer.BlackjackSumValue())); // Assert  that player will tie with dealer
 
     }
 
@@ -68,6 +71,8 @@ public class BlackJackUnitTest
         blackJack.dealer = CardStackFunctions.GetCardStackMock();
         blackJack.player = CardStackFunctions.GetCardStackMock();
         blackJack.deck = CardStackFunctions.GetCardStackMock();
+        CardStackFunctions.FillWithCards(blackJack.deck, 52);
+
 
         blackJack.winnerText = Substitute.For<Text>(); 
         blackJack.playerScore = Substitute.For<Text>(); 
@@ -81,7 +86,8 @@ public class BlackJackUnitTest
         blackJack.playAgainButton  = Substitute.For<Button>();
         blackJack.standButton = Substitute.For<Button>();
 
-        blackJack.HandCover = Substitute.For<GameObject>();
+        //blackJack.HandCover = Substitute.For<GameObject>();
+        //blackJack.HandCover.AddComponent<SpriteRenderer>();
 
         blackJack.StartGame();
 
