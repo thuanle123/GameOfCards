@@ -145,7 +145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.029000001, y: 0.032143854}
   m_AnchorMax: {x: 0.39100003, y: 0.21400002}
-  m_AnchoredPosition: {x: -0.049099922, y: 0.2599945}
+  m_AnchoredPosition: {x: 0.4510193, y: -0.5000305}
   m_SizeDelta: {x: 0.9020004, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10685237
@@ -214,7 +214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.8, y: -135.85}
+  m_AnchoredPosition: {x: -23.799988, y: -123.38993}
   m_SizeDelta: {x: 160, y: 36.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42003534
@@ -461,7 +461,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -480,7 +480,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 226019635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5770762, y: -0.5851308, z: -0.103515625}
+  m_LocalPosition: {x: -1, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1058,7 +1058,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1077,7 +1077,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 501503417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5770762, y: -0.5851308, z: -0.103515625}
+  m_LocalPosition: {x: -1, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1265,7 +1265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23.8, y: 123}
+  m_AnchoredPosition: {x: -23.8, y: 116}
   m_SizeDelta: {x: 160, y: 36.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &760568614
@@ -1500,8 +1500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b210e8e1991817e438bfaa7e0405b60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {x: 4, y: 0.5, z: 0}
-  cardOffset: 0.04
+  start: {x: 5, y: 0, z: 0}
+  cardOffset: 0
   faceUp: 0
   reverseLayer: 0
   cardPrefab: {fileID: 443292863}
@@ -1539,7 +1539,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2022,6 +2022,65 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325162490}
   m_CullTransparentMesh: 0
+--- !u!1 &1351841322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351841324}
+  - component: {fileID: 1351841323}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1351841323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1351841322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c69db74c420f24da2168240d323180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: cardFan1
+    clip: {fileID: 8300000, guid: 3f766dd064e3eb248880ce2e468d633f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: cardShuffle
+    clip: {fileID: 8300000, guid: 08e28edd6212d464c979ead6f277225c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: cardSlide6
+    clip: {fileID: 8300000, guid: 7acdb27afbd7cd7469873f782edfc20a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &1351841324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1351841322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1454879766
 Prefab:
   m_ObjectHideFlags: 0
@@ -2102,7 +2161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -62, y: -120}
+  m_AnchoredPosition: {x: -68, y: -95}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1636402444
@@ -2177,7 +2236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 333, y: -118}
+  m_AnchoredPosition: {x: 327, y: -93}
   m_SizeDelta: {x: 151.7, y: 30.002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649558293
@@ -2561,7 +2620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -222.00034, y: -120.00493}
+  m_AnchoredPosition: {x: -228.00034, y: -95.00493}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1825051205
@@ -2636,7 +2695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 177.14998, y: -118.00001}
+  m_AnchoredPosition: {x: 171.14998, y: -93.000015}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1903852270
@@ -2688,6 +2747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1947723080}
   - component: {fileID: 1947723079}
+  - component: {fileID: 1947723081}
   m_Layer: 0
   m_Name: Blackjack Controller
   m_TagString: Untagged
@@ -2717,11 +2777,12 @@ MonoBehaviour:
   dealerHandScore: {fileID: 760568614}
   hitButton: {fileID: 127594173}
   nextRoundButton: {fileID: 1178932321}
-  playAgainButton: {fileID: 1178932321}
+  playAgainButton: {fileID: 451912288}
   standButton: {fileID: 359123229}
   roundWonByPlayer: 0
   roundWonByDealer: 0
   HandCover: {fileID: 2042153800}
+  soundClips: {fileID: 1351841323}
 --- !u!4 &1947723080
 Transform:
   m_ObjectHideFlags: 0
@@ -2735,6 +2796,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1947723081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1947723078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcbf8de10721a24185e2b0c199bc3fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cards: 
+  isGameDeck: 0
 --- !u!1 &1986751781
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,7 +3008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e771e507da55044be14c2dc108bd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 1236108521}
+  Panel: {fileID: 0}
 --- !u!114 &2133269555
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,9 +19,7 @@ public class CardStack : MonoBehaviour
         }
     }
 
-    // GetCards starts a coroutine
-    // The yield statement is there so that it can be paused at any moment
-    // We need a public method to numerate through them all
+    // Public method to numerate through cards.
     public IEnumerable<int> GetCards()
     {
         foreach (int i in cards)
@@ -30,7 +28,7 @@ public class CardStack : MonoBehaviour
         }
     }
 
-    // Get card count from card stack
+    // Gets number of cards in the stack.
     public int CardCount
     {
         get
@@ -46,14 +44,14 @@ public class CardStack : MonoBehaviour
         }
     }
 
-    // Draw method draws the card to the player and dealer
-    // It also remove the card from the List
+    // Draws a card from the stack.
+    // To draw from the top, call Draw(0);
     public int Draw(int position)
     {
         int temp = cards[position];
         cards.RemoveAt(position);
 
-        //to remove card from the stack
+        // Actually removes card from the stack.
         if (CardRemoved != null)
         {
             CardRemoved(this, new CardRemoved(temp));
@@ -61,23 +59,21 @@ public class CardStack : MonoBehaviour
         return temp;
     }
 
+    // Pushes card to top of the stack.
     public void push(int card)
     {
         cards.Add(card);
     }
 
-    // This function helps with the rendering problem when pushing the card
-    // Before, push will add it to position 0, making the old card renders on top of a new one
+    // Inserts a card to a specific position in the list.
     public void InsertCard(int position, int card)
     {
         cards.Insert(position, card);
     }
 
-    // Calculate the hand value
-    // The value for 10 needs to be 0
-    // Otherwise it won't distuingish between a 10 and face cards
-    // Ten + Jack + Queen = 0, lowest hand
-    // Any 3 three cards sum value = 30, highest hand
+    // Calculate the hand value for Chance.
+    // Face cards have a value of 10, and tens have a value of 0.
+    // This allows us to check for a CHANCE hand (All face cards.)
     public int ChanceSumValue()
     {
         int sum = 0;
@@ -109,8 +105,7 @@ public class CardStack : MonoBehaviour
         return sum;
     }
 
-    // Calculate Blackjack hand value
-    // Ace is worth either 1 or 11 points
+    // Calculate the hand value for blackjack.
     public int BlackjackSumValue()
     {
         int sum = 0;

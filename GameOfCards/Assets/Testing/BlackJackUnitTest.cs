@@ -39,8 +39,6 @@ public class BlackJackUnitTest
         blackJack.playAgainButton  = Substitute.For<Button>();
         blackJack.standButton = Substitute.For<Button>();
 
-        // PLEASE LOOK INTO THIS, StartGame() gives a compile error
-        // I just make it start so it won't give me an error
         blackJack.Start();
 
         return blackJack; 

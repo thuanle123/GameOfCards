@@ -828,8 +828,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: 0}
-  m_SizeDelta: {x: 207.6, y: 31.1}
+  m_AnchoredPosition: {x: 13.2, y: -3.325}
+  m_SizeDelta: {x: 260.4, y: 55.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350901653
 MonoBehaviour:
@@ -852,7 +852,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 17
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -1191,7 +1191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.029000001, y: 0.034}
   m_AnchorMax: {x: 0.28800002, y: 0.17314386}
-  m_AnchoredPosition: {x: 0.24599838, y: -0.18599987}
+  m_AnchoredPosition: {x: 0.2460022, y: -0.18600464}
   m_SizeDelta: {x: 1.4850006, y: 0.1060009}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500061954
@@ -2233,6 +2233,65 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1236108521}
   m_CullTransparentMesh: 0
+--- !u!1 &1326501035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1326501037}
+  - component: {fileID: 1326501036}
+  m_Layer: 0
+  m_Name: soundClips
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1326501036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326501035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c69db74c420f24da2168240d323180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: cardFan1
+    clip: {fileID: 8300000, guid: 3f766dd064e3eb248880ce2e468d633f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: cardShuffle
+    clip: {fileID: 8300000, guid: 08e28edd6212d464c979ead6f277225c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: cardSlide6
+    clip: {fileID: 8300000, guid: 7acdb27afbd7cd7469873f782edfc20a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &1326501037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1326501035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6568868, y: -1.6175617, z: -0.023790844}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406670837
 GameObject:
   m_ObjectHideFlags: 0
@@ -2488,7 +2547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -119, y: -167}
+  m_AnchoredPosition: {x: -115, y: -112}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1636402444
@@ -2563,7 +2622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 287, y: -172.29}
+  m_AnchoredPosition: {x: 291, y: -117.289986}
   m_SizeDelta: {x: 160, y: 36.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649558293
@@ -2823,7 +2882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -215.03433, y: -167.00493}
+  m_AnchoredPosition: {x: -211.03433, y: -112.00492}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1825051205
@@ -2898,7 +2957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 190, y: -169.24}
+  m_AnchoredPosition: {x: 194, y: -114.24}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1903852270
@@ -2971,7 +3030,6 @@ MonoBehaviour:
   dealer: {fileID: 226019637}
   player: {fileID: 501503418}
   deck: {fileID: 898372448}
-  tempStack: {fileID: 78973668}
   playAgainButton: {fileID: 1178932321}
   endTurnButton: {fileID: 1433666076}
   swapCardButton: {fileID: 127594173}
@@ -2984,6 +3042,7 @@ MonoBehaviour:
   HandCover1: {fileID: 1202969164}
   HandCover2: {fileID: 331915326}
   HandCover3: {fileID: 176765890}
+  soundClips: {fileID: 1326501036}
 --- !u!4 &1947723080
 Transform:
   m_ObjectHideFlags: 0
