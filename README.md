@@ -15,7 +15,7 @@ A collection of cards games made on Unity 2D.
 ### Presentation
 
 - Initial Presentation [Link](https://docs.google.com/presentation/d/1JbSwHQwJg5-Oik0h6f20dCVgwFGAy97h9LZigEuszHU/edit?usp=sharing)
-- Final Presentation 
+- Final Presentation [Link](https://docs.google.com/presentation/d/1NDjAXFHUnlP1upIbYUKE9030vqGiavxArp01Gzojh-g/edit?usp=sharing)
  
 ### Release Plans
 
