@@ -24,13 +24,13 @@ A collection of cards games made on Unity 2D.
 ### Sprint #1
 
 - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-1-%F0%9F%9A%80-08-10-18-21-10-18)
-- Sprint #1 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%231.pdf)
+- Sprint #1 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%231%20(1).pdf)
 - Sprint #1 Report [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20%231%20Report%20%20(1).pdf)
 
 ### Sprint #2
 
  - Scrum Board [Trello](https://trello.com/b/nC4iaQYB/game-of-cards-sprint-2-%F0%9F%9A%80-22-10-18-04-11-18)
- - Sprint #2 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%232%20(2).pdf)
+ - Sprint #2 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%232%20(3).pdf)
  - Sprint #2 Report [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20%232%20Report%20(2).pdf)
  
  ### Sprint #3
@@ -40,7 +40,7 @@ A collection of cards games made on Unity 2D.
 
   ### Sprint #4
  - Scrum Board [Trello]()
- - Sprint #4 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%234%20(3).pdf)
+ - Sprint #4 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%234%20(4).pdf)
  - Sprint #4 Report [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%204%20Report.pdf)
  
 ### Technologies
