@@ -27,7 +27,6 @@ public class Blackjack : MonoBehaviour
 
     public GameObject HandCover;
 
-    public AudioManager soundClips;
 
     /* Blackjack Rules:
      * The player attemps to beat the dealer by getting a count as 
@@ -65,7 +64,7 @@ public class Blackjack : MonoBehaviour
         winnerText.text = "";
 
         StartRound();
-        soundClips.Play("cardShuffle");
+        FindObjectOfType<AudioManager>().Play("cardShuffle");
     }
 	
 	// Update is called once per frame
@@ -94,8 +93,7 @@ public class Blackjack : MonoBehaviour
 
     public void Hit()
     {
-        //FindObjectOfType<AudioManager>().Play("cardSlide6");
-        soundClips.Play("cardSlide6");
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
         player.push(deck.Draw(0));
         Debug.Log("Player score = " + player.BlackjackSumValue());
         playerHandScore.text = player.BlackjackSumValue().ToString();
@@ -123,7 +121,7 @@ public class Blackjack : MonoBehaviour
         CoverHand();
 
         StartRound();
-        soundClips.Play("cardSlide6");
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     public void NewGame()
@@ -176,7 +174,7 @@ public class Blackjack : MonoBehaviour
     {
         int card = deck.Draw(0);
         dealer.push(card);
-        soundClips.Play("cardSlide6");
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     IEnumerator DealersTurn()

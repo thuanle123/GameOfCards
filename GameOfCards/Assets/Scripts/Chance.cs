@@ -29,8 +29,6 @@ public class Chance : MonoBehaviour
     public GameObject HandCover2;
     public GameObject HandCover3;
 
-    public AudioManager soundClips;
-
     int roundWonByPlayer = 0;
     int roundWonByDealer = 0;
 
@@ -95,7 +93,7 @@ public class Chance : MonoBehaviour
         }
 
         dealerHandScore.text = "";
-        soundClips.Play("cardSlide6");
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     // Function to end your turn for the round.
@@ -179,8 +177,7 @@ public class Chance : MonoBehaviour
         HandCover2.SetActive(true);
         HandCover3.SetActive(true);
         Start();
-        soundClips.Play("cardShuffle");
-        //FindObjectOfType<AudioManager>().Play("cardShuffle");
+        FindObjectOfType<AudioManager>().Play("cardShuffle");
     }
 
     // Function to move on to the next round of the game.
@@ -190,7 +187,7 @@ public class Chance : MonoBehaviour
         winnerText.text = "";
         CoverHand();
         StartRound();
-        soundClips.Play("cardFan1");
+        FindObjectOfType<AudioManager>().Play("cardFan1");
     }
 
     // Starts a new game of Chance.
@@ -199,7 +196,7 @@ public class Chance : MonoBehaviour
         playerScore.text = "0";
         dealerScore.text = "0";
         StartRound();
-        soundClips.Play("cardSlide6");
+        FindObjectOfType<AudioManager>().Play("cardSlide6");
     }
 
     // Starts a new round of chance.
