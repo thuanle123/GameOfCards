@@ -40,7 +40,7 @@ A collection of cards games made on Unity 2D.
 
   ### Sprint #4
  - Scrum Board [Trello]()
- - Sprint #4 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%234%20(4).pdf)
+ - Sprint #4 Plan [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%20Plan%20%234%20(5).pdf)
  - Sprint #4 Report [PDF](https://github.com/thuanle123/GameOfCards/blob/master/SCRUM/Sprint%204%20Report.pdf)
  
 ### Technologies
