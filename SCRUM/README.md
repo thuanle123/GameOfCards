@@ -1,1 +1,2 @@
-This is where all SCRUM related documents are stored.
+SCRUM related documents
+Todo: Reupload all of the file to make it cleaner.
