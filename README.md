@@ -1,7 +1,5 @@
 # Game of Cards
 
-A collection of cards games made on Unity 2D.
-
 ## Team WildCard
 
 - Thuan Le (Product Owner)
